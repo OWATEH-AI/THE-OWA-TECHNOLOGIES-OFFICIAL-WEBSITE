@@ -12,10 +12,11 @@
   --surface: #0a0a0a;
   --surface-2: #111111;
   --text-primary: #FFFFFF;
-  --text-secondary: #8B8B8B;
-  --text-muted: #4a4a4a;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.18);
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.25);
+  --glow: rgba(37, 99, 235, 0.15);
   --glass: rgba(10, 10, 10, 0.75);
   --glass-light: rgba(255, 255, 255, 0.04);
   --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -234,6 +235,87 @@ h4 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   CURSOR GLOW 
+   ========================================== */
+
+#cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  filter: blur(40px);
+  opacity: 0.6;
+  transition: opacity 1s ease;
+}
+
+body:hover #cursor-glow {
+  opacity: 0.6;
+}
+
+/* ==========================================
+   INTERACTIVE REVEALS
+   ========================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* ==========================================
+   PREMIUM CARD EFFECT
+   ========================================== */
+
+.card-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.card-item:hover::after {
+  transform: translateX(100%);
+}
+
+.card-item:hover {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.1);
 }
 
 /* ==========================================
@@ -491,12 +573,12 @@ h4 {
 
 .card-partner {
   border: 1px solid rgba(37, 99, 235, 0.4) !important;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(30, 41, 59, 0.95)) !important;
+  background: rgba(37, 99, 235, 0.05) !important;
 }
 
 .card-promo {
   border: 1px solid rgba(249, 115, 22, 0.4) !important;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(30, 41, 59, 0.95)) !important;
+  background: rgba(249, 115, 22, 0.05) !important;
 }
 
 /* ==========================================

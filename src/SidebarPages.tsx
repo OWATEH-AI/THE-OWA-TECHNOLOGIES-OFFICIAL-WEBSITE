@@ -538,7 +538,11 @@ export const IndustryUseCasesPage: React.FC<{ open: boolean; onClose: () => void
                     { src: '/assets/blog/african_tech_office_collaboration_ai.png', label: 'Corporate AI' },
                     { src: '/assets/owa_blogs/diHPYGSCyNdqdo7SHr5FTY-1200-80.jpg', label: 'Digital Logistics' },
                     { src: '/assets/blog/african_student_ai_learning_high_tech.png', label: 'Student EdTech' },
-                    { src: '/assets/owa_blogs/South-Africa-digital-students.webp', label: 'Digital Literacy' }
+                    { src: '/assets/owa_blogs/South-Africa-digital-students.webp', label: 'Digital Literacy' },
+                    { src: '/BBF PICS/IMG-20240728-WA0039.jpg', label: 'Hospitality Training' },
+                    { src: '/PAIVEPO/476249544_595226256636942_3277987789476881716_n.jpg', label: 'Heritage Tech' },
+                    { src: '/OPPAH\'S HOME AND DECO/IMG-20251128-WA0006.jpg', label: 'Interior Automation' },
+                    { src: '/assets/owa_blogs/Hands_on_Code.jpg', label: 'Engineering' }
                 ]} />
             </div>
 

@@ -485,7 +485,8 @@ const App: React.FC = () => {
       name: "The OWA Vision",
       role: "Empowerment Agenda",
       rating: 5,
-      isPromo: true
+      isPromo: true,
+      image: "/OSIX/hero_africa_team.png"
     },
     {
       quote: "Our official media partner. GANDS ARTS MEDIA handles visual identity, professional photography, and AI video ads for our unified movement.",
@@ -500,6 +501,7 @@ const App: React.FC = () => {
       name: "Skill Monetization",
       role: "Marketplace Insight",
       rating: 5,
+      image: "/OSIX/Students_on_laptop_(1).jpg"
     },
     // --- SUCCESS STORIES ---
     {
@@ -536,7 +538,8 @@ const App: React.FC = () => {
       name: "Job Market Gap",
       role: "Economic Vision",
       rating: 5,
-      isPromo: true
+      isPromo: true,
+      image: "/OSIX/hands-holding-neon-sign.jpg"
     },
     {
       quote: "OWA automated our fleet dispatching using AI Agents. We've seen a 30% reduction in fuel waste and faster turnaround times. Truly world-class.",
@@ -566,6 +569,7 @@ const App: React.FC = () => {
       name: "Sustainable Tech",
       role: "Business Model",
       rating: 5,
+      image: "/OSIX/media_1e9527932a5ecf365f8b5c3431cb2ba1fcb038d74.png"
     },
     {
       quote: "Loyalty has its rewards. Get up to 50% off rewards and discounts for our organization partners and returning clients.",
@@ -987,7 +991,7 @@ const App: React.FC = () => {
       </section>
 
       {/* ===================== STATS ===================== */}
-      <section style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }} className="reveal-on-scroll">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '48px 24px' }}>
             {stats.map((s, i) => (
@@ -1003,7 +1007,7 @@ const App: React.FC = () => {
       </section>
 
       {/* ===================== ABOUT PREVIEW ===================== */}
-      <section id="about" className="py-24">
+      <section id="about" className="py-24 reveal-on-scroll">
         <div className="container">
           <motion.div variants={fadeUp} style={{ marginBottom: 72, maxWidth: 640 }}>
             <SectionLabel>What We Do</SectionLabel>
@@ -1044,7 +1048,7 @@ const App: React.FC = () => {
       </section>
 
       {/* ===================== SERVICES PREVIEW ===================== */}
-      <section id="services" className="py-24 border-t border-white/10">
+      <section id="services" className="py-24 border-t border-white/10 reveal-on-scroll">
         <div className="container">
           <motion.div variants={fadeUp} style={{ marginBottom: 72, maxWidth: 640 }}>
             <SectionLabel>Training & Education</SectionLabel>
@@ -1107,7 +1111,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      <section id="solutions" className="py-24 border-t border-white/10 relative overflow-hidden bg-gradient-to-b from-[#0B0F19] to-[#0A0A0A]">
+      <section id="solutions" className="py-24 border-t border-white/10 relative overflow-hidden bg-gradient-to-b from-[#0B0F19] to-[#0A0A0A] reveal-on-scroll">
         {/* Decorative globe/network bg */}
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.4), transparent 50%)' }} />
         <div className="container relative z-10">
@@ -1181,10 +1185,9 @@ const App: React.FC = () => {
               }}
               whileHover={{
                 y: -4,
-                borderColor: (t as any).isPartner ? 'rgba(37,99,235,0.8)' : (t as any).isPromo ? 'rgba(249,115,22,0.8)' : 'rgba(37,99,235,0.4)',
-                background: (t as any).isPartner ? 'rgba(37,99,235,0.1)' : (t as any).isPromo ? 'rgba(249,115,22,0.1)' : 'rgba(255,255,255,0.05)',
+                borderColor: (t as any).isPartner ? 'rgba(37,99,235,0.4)' : (t as any).isPromo ? 'rgba(249,115,22,0.4)' : 'rgba(255,255,255,0.2)',
+                background: 'rgba(255,255,255,0.05)',
                 boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-                scale: 1.01
               }}
               whileTap={{ scale: 0.98 }}
             >
@@ -1215,7 +1218,7 @@ const App: React.FC = () => {
       </section>
 
       {/* ===================== PRICING ===================== */}
-      <section id="pricing" className="py-24 border-t border-white/10 tech-grid-bg" style={{ padding: '96px 0 80px 0', position: 'relative', zIndex: 1 }}>
+      <section id="pricing" className="py-24 border-t border-white/10 tech-grid-bg reveal-on-scroll" style={{ padding: '96px 0 80px 0', position: 'relative', zIndex: 1 }}>
         <div className="container">
           <motion.div variants={fadeUp} style={{ marginBottom: 48, textAlign: 'center' }}>
             <SectionLabel>Pricing</SectionLabel>

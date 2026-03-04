@@ -123,6 +123,31 @@
       btn.appendChild(span);
       setTimeout(() => span.remove(), 700);
     });
+
+    // Intersection Observer for Scroll Reveals
+    (function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Once revealed, we can stop observing
+            // observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      const setupReveal = () => {
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+      };
+
+      // Run on load and after short delay for dynamic content
+      setupReveal();
+      setTimeout(setupReveal, 1000);
+
+      // Also observe changes to DOM for SPA navigation
+      const domObserver = new MutationObserver(setupReveal);
+      domObserver.observe(document.body, { childList: true, subtree: true });
+    })();
   </script>
 </body>
 
