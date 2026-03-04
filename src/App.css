@@ -1,0 +1,97 @@
+/* =============================================
+   OWA TECHNOLOGIES - RESPONSIVE BREAKPOINTS
+   ============================================= */
+
+/* ---- Desktop Nav Show / Mobile Hide ---- */
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ---- Training grid ---- */
+.training-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- Contact grid ---- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- Footer Grid ---- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+/* =============================================
+   TABLET breakpoint (max 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =============================================
+   MOBILE breakpoint (max 768px)
+   ============================================= */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  /* Training & Contact — stack vertically */
+  .training-grid {
+    grid-template-columns: 1fr !important;
+    direction: ltr !important;
+    gap: 40px !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px !important;
+  }
+
+  /* Pricing scale reset on mobile */
+  .pricing-grid>div {
+    transform: scale(1) !important;
+  }
+
+  /* CTA Banner internal padding */
+  section .container>div[style*="padding: '80px 64px'"] {
+    padding: 48px 28px !important;
+  }
+}
+
+/* =============================================
+   SMALL MOBILE (max 480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero buttons full-width */
+  #hero .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

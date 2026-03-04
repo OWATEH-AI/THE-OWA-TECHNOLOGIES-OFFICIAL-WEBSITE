@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="/assets/owa_logo.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="OWA Technologies — Empowering Africa with AI. We build intelligent systems, automate business processes, and train Africa's next generation of AI talent." />
+  <meta name="keywords"
+    content="AI Africa, business automation, AI training, digital transformation, OWA Technologies, Zimbabwe AI, Africa tech" />
+  <meta name="author" content="OWA Technologies" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OWA TECHNOLOGIES — Empowering Africa with AI" />
+  <meta property="og:description"
+    content="AI solutions, automation and training programs for businesses and learners across Africa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://owatech.netlify.app" />
+  <meta property="og:image" content="/assets/hero/hero_phenomenal.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OWA TECHNOLOGIES — Empowering Africa with AI" />
+  <meta name="twitter:description"
+    content="AI solutions, automation and training programs for businesses and learners across Africa." />
+  <meta name="twitter:image" content="/assets/hero/hero_phenomenal.jpg" />
+
+  <!-- Preload Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="/assets/owa_logo.jpg" as="image" />
+
+  <title>OWA TECHNOLOGIES — Empowering Africa with AI</title>
+
+  <style>
+    /* Critical path CSS — prevents FOUC */
+    html {
+      background: #000;
+      color: #fff;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2563EB, #60a5fa, #7c3aed);
+      z-index: 10000;
+      width: 0%;
+      transition: width 0.05s linear;
+      border-radius: 0 2px 2px 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Cursor glow (desktop only) -->
+  <div id="cursor-glow"></div>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Micro-interactions: Scroll Progress + Cursor Glow -->
+  <script>
+    // Scroll progress indicator
+    (function () {
+      const bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      const update = () => {
+        const docH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+        bar.style.width = pct + '%';
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    // Cursor glow (desktop only)
+    (function () {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const glow = document.getElementById('cursor-glow');
+        if (!glow) return;
+        let ax = window.innerWidth / 2, ay = window.innerHeight / 2;
+        let cx = ax, cy = ay;
+        let raf;
+        document.addEventListener('mousemove', (e) => {
+          ax = e.clientX; ay = e.clientY;
+        }, { passive: true });
+        const lerp = (a, b, t) => a + (b - a) * t;
+        const animate = () => {
+          cx = lerp(cx, ax, 0.08);
+          cy = lerp(cy, ay, 0.08);
+          glow.style.left = cx + 'px';
+          glow.style.top = cy + 'px';
+          raf = requestAnimationFrame(animate);
+        };
+        animate();
+      }
+    })();
+
+    // Ripple effect on buttons
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn');
+      if (!btn) return;
+      const rect = btn.getBoundingClientRect();
+      const r = Math.max(rect.width, rect.height);
+      const span = document.createElement('span');
+      span.className = 'ripple-effect';
+      span.style.cssText = `width:${r}px;height:${r}px;left:${e.clientX - rect.left - r / 2}px;top:${e.clientY - rect.top - r / 2}px`;
+      btn.appendChild(span);
+      setTimeout(() => span.remove(), 700);
+    });
+  </script>
+</body>
+
+</html>
