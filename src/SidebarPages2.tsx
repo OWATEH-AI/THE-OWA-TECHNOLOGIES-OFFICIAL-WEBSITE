@@ -5,7 +5,7 @@ import {
     GraduationCap, Wifi, BookOpen, Home,
     Award, Lightbulb, Target,
     TrendingUp, Handshake, Rocket, Palette,
-    ExternalLink, Shield, Users, Heart, Cpu, FileText
+    ExternalLink, Shield, Users, Heart, Cpu, FileText, Download
 } from 'lucide-react';
 import { PageOverlay } from './SidebarPages';
 
@@ -210,9 +210,9 @@ const InfoCard: React.FC<{ icon: React.ReactNode; title: string; items: string[]
     </div>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 1. AI FOR EDUCATION PAGE (Teachers | Students sub-tabs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
     const [tab, setTab] = useState<'teachers' | 'students'>('teachers');
     return (
@@ -244,17 +244,17 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
                         </div>
 
                         {/* Problems Solved */}
-                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#f87171', textTransform: 'uppercase' as const, marginBottom: 24 }}>ðŸ”´ Problems AI Solves for Teachers</h3>
+                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#f87171', textTransform: 'uppercase' as const, marginBottom: 24 }}>🔴 Problems AI Solves for Teachers</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 48 }}>
-                            {['Manual grading consuming 10+ hours weekly â€” repetitive, error-prone, and exhausting', 'Lesson planning fatigue â€” creating fresh, engaging material every term is overwhelming', 'Disengaged students â€” traditional methods fail to capture digital-native attention spans', 'Data tracking overload â€” attendance, performance metrics, and reports buried in spreadsheets', 'One-size-fits-all teaching â€” no capacity to personalize learning for each student', 'Parent communication gaps â€” slow updates, missed reports, lack of real-time progress sharing'].map((p, i) => (
+                            {['Manual grading consuming 10+ hours weekly — repetitive, error-prone, and exhausting', 'Lesson planning fatigue — creating fresh, engaging material every term is overwhelming', 'Disengaged students — traditional methods fail to capture digital-native attention spans', 'Data tracking overload — attendance, performance metrics, and reports buried in spreadsheets', 'One-size-fits-all teaching — no capacity to personalize learning for each student', 'Parent communication gaps — slow updates, missed reports, lack of real-time progress sharing'].map((p, i) => (
                                 <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: '20px 24px', background: 'rgba(248,113,113,0.05)', border: '1px solid rgba(248,113,113,0.12)', borderRadius: 12, fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
-                                    <span style={{ color: '#f87171', fontSize: '1.1rem', marginTop: -2, flexShrink: 0 }}>âœ—</span> {p}
+                                    <span style={{ color: '#f87171', fontSize: '1.1rem', marginTop: -2, flexShrink: 0 }}>✖</span> {p}
                                 </div>
                             ))}
                         </div>
 
                         {/* Benefits */}
-                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#4ade80', textTransform: 'uppercase' as const, marginBottom: 24 }}>âœ… Benefits of AI-Powered Teaching</h3>
+                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#4ade80', textTransform: 'uppercase' as const, marginBottom: 24 }}>✅ Benefits of AI-Powered Teaching</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 48 }}>
                             <InfoCard icon={<Zap size={20} />} title="Save 10+ Hours Weekly" items={['AI auto-grades assignments & quizzes', 'Instant feedback generation for students', 'Automated attendance & report writing']} accent="#4ade80" />
                             <InfoCard icon={<Target size={20} />} title="Personalized at Scale" items={['AI analyzes each student\'s learning pace', 'Auto-generates differentiated worksheets', 'Real-time performance dashboards per student']} accent="#60a5fa" />
@@ -262,7 +262,7 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
                         </div>
 
                         {/* Training Available */}
-                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#60a5fa', textTransform: 'uppercase' as const, marginBottom: 24 }}>ðŸ“š Training Programs for Educators</h3>
+                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#60a5fa', textTransform: 'uppercase' as const, marginBottom: 24 }}>📚 Training Programs for Educators</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 48 }}>
                             {[
                                 { badge: 'FOUNDATION', color: '#2563EB', title: 'Basic AI Toolkit', duration: '2-Day Workshop', items: ['Understanding AI fundamentals for education', 'Using ChatGPT/Gemini for lesson planning', 'AI-powered grading introduction', 'Ethics & responsible AI in classrooms'] },
@@ -286,7 +286,7 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
                         <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '40px', marginBottom: 48 }}>
                             <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: 24 }}>What Teachers Will Master</h3>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
-                                {['Prompt engineering â€” crafting instructions that get the best AI output', 'AI grading tools â€” automated marking with personalized feedback', 'Content generation â€” lesson plans, worksheets, exams in minutes', 'Student analytics â€” interpreting AI-generated performance data', 'Ethics in AI â€” teaching responsible AI usage to students', 'Workflow automation â€” connecting tools for seamless classroom management'].map((item, i) => (
+                                {['Prompt engineering — crafting instructions that get the best AI output', 'AI grading tools — automated marking with personalized feedback', 'Content generation — lesson plans, worksheets, exams in minutes', 'Student analytics — interpreting AI-generated performance data', 'Ethics in AI — teaching responsible AI usage to students', 'Workflow automation — connecting tools for seamless classroom management'].map((item, i) => (
                                     <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)' }}>
                                         <CheckCircle size={14} color="#2563EB" style={{ marginTop: 3, flexShrink: 0 }} /> {item}
                                     </div>
@@ -309,28 +309,32 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
                                 <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8 }}>Don't let technology replace your future. Partner with OWA to build real AI skills, earn certifications, and launch your career in the new digital economy.</p>
                             </div>
                             <div style={{ borderRadius: 20, overflow: 'hidden', height: 400, border: '1px solid rgba(255,255,255,0.08)', position: 'relative' }}>
-                                <Slideshow images={[
-                                    { src: '/assets/blog/african_student_ai_learning_high_tech.png', alt: 'AI Learning' },
-                                    { src: '/assets/owa_blogs/South-Africa-digital-students.webp', alt: 'Digital Students' },
-                                    { src: '/assets/owa_blogs/Students_on_laptop_(1).jpg', alt: 'Students Collaborating' },
-                                    { src: '/assets/owa_blogs/WikiAfrica_Schools_training_African_School_for_Excellence_(3).webp', alt: 'School Excellence' }
-                                ]} />
+                                <KenBurnsSlideshow
+                                    interval={6500}
+                                    seed={4}
+                                    images={[
+                                        { src: '/assets/blog/african_student_ai_learning_high_tech.png', alt: 'AI Learning' },
+                                        { src: '/assets/blog/sekai_moyo_teacher_ai.png', alt: 'AI Class Session' },
+                                        { src: '/assets/owa_blogs/Students_on_laptop_(1).jpg', alt: 'Students Collaborating' },
+                                        { src: '/assets/owa_blogs/pupilsatthec.jpg', alt: 'School Excellence' }
+                                    ]}
+                                />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(4,9,26,0.4), transparent)', pointerEvents: 'none' }} />
                             </div>
                         </div>
 
                         {/* Problems Solved */}
-                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#f87171', textTransform: 'uppercase' as const, marginBottom: 24 }}>ðŸ”´ Challenges Students Face Today</h3>
+                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#f87171', textTransform: 'uppercase' as const, marginBottom: 24 }}>🔴 Challenges Students Face Today</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 48 }}>
-                            {['Falling behind global peers â€” African students lack access to cutting-edge tech training', 'Limited career-ready skills â€” traditional education doesn\'t teach AI, automation, or digital tools', 'No practical tech exposure â€” theory without hands-on building leads to unemployable graduates', 'Expensive education â€” quality tech training priced out of reach for most families', 'No clear career pathway â€” confusion about what AI jobs exist and how to get them', 'Fear of AI â€” misconception that AI will replace them rather than empower them'].map((p, i) => (
+                            {['Falling behind global peers — African students lack access to cutting-edge tech training', 'Limited career-ready skills — traditional education doesn\'t teach AI, automation, or digital tools', 'No practical tech exposure — theory without hands-on building leads to unemployable graduates', 'Expensive education — quality tech training priced out of reach for most families', 'No clear career pathway — confusion about what AI jobs exist and how to get them', 'Fear of AI — misconception that AI will replace them rather than empower them'].map((p, i) => (
                                 <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: '20px 24px', background: 'rgba(248,113,113,0.05)', border: '1px solid rgba(248,113,113,0.12)', borderRadius: 12, fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
-                                    <span style={{ color: '#f87171', fontSize: '1.1rem', marginTop: -2, flexShrink: 0 }}>âœ—</span> {p}
+                                    <span style={{ color: '#f87171', fontSize: '1.1rem', marginTop: -2, flexShrink: 0 }}>✖</span> {p}
                                 </div>
                             ))}
                         </div>
 
                         {/* Benefits */}
-                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#4ade80', textTransform: 'uppercase' as const, marginBottom: 24 }}>âœ… What OWA Gives Students</h3>
+                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#4ade80', textTransform: 'uppercase' as const, marginBottom: 24 }}>✅ What OWA Gives Students</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 48 }}>
                             <InfoCard icon={<Rocket size={20} />} title="Future-Proof Skills" items={['Learn AI tools used by top global companies', 'Build real automation projects, not just theory', 'Understand prompt engineering & AI architecture']} accent="#a78bfa" />
                             <InfoCard icon={<TrendingUp size={20} />} title="Earn While Learning" items={['OWA internship pipeline for top students', 'Freelance AI project opportunities', 'Referral commissions for student ambassadors']} accent="#4ade80" />
@@ -338,7 +342,7 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
                         </div>
 
                         {/* Training Tracks */}
-                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#60a5fa', textTransform: 'uppercase' as const, marginBottom: 24 }}>ðŸŽ“ Student Learning Tracks</h3>
+                        <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', color: '#60a5fa', textTransform: 'uppercase' as const, marginBottom: 24 }}>🎓 Student Learning Tracks</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 48 }}>
                             {[
                                 { badge: 'BEGINNER', color: '#2563EB', title: 'AI Foundations', duration: 'Free Introduction', items: ['What is AI and how does it work?', 'Using AI tools for school projects', 'Introduction to prompt engineering', 'Career paths in AI explained'] },
@@ -389,15 +393,15 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
     );
 };
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 2. PARTNERS PAGE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero badge="Strategic Partnership Ecosystem" title="Unlocking Global Pathways<br/><span style='color:#60a5fa'>From Local Roots</span>" sub="OWA Technologies builds high-impact collaborations with aligned leaders and visionary anchors. Every partnership is selected for its ability to expand opportunity and deliver real-world outcomes." />
         <div style={wrap}>
 
-            {/* â”€â”€ Hero Image Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── Hero Image Grid ─────────────────────────────────── */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -443,7 +447,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 ))}
             </motion.div>
 
-            {/* â”€â”€ Section Title â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── Section Title ─────────────────────────────────── */}
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -458,7 +462,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>Our Ecosystem Partners</h2>
             </motion.div>
 
-            {/* â”€â”€ Blessed Be Faith College â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── Blessed Be Faith College ─────────────────────── */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -473,7 +477,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                                 <GraduationCap size={22} />
                             </div>
                             <div>
-                                <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', color: '#4ade80', textTransform: 'uppercase' as const, display: 'block' }}>Education Partner Â· Zimbabwe</span>
+                                <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', color: '#4ade80', textTransform: 'uppercase' as const, display: 'block' }}>Education Partner · Zimbabwe</span>
                                 <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>Blessed Be Faith College</h2>
                             </div>
                         </div>
@@ -516,7 +520,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 );
             })()}
 
-            {/* â”€â”€ PaiVepo Domboshava â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── PaiVepo Domboshava ───────────────────────────── */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -553,7 +557,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                             <Globe size={22} />
                         </div>
                         <div>
-                            <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', color: '#f59e0b', textTransform: 'uppercase' as const, display: 'block' }}>Eco-Tourism Partner Â· Domboshava</span>
+                            <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', color: '#f59e0b', textTransform: 'uppercase' as const, display: 'block' }}>Eco-Tourism Partner · Domboshava</span>
                             <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>PaiVepo Domboshava</h2>
                         </div>
                     </div>
@@ -561,7 +565,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                         As the first enterprise-ready eco-tourism destination in the Domboshava region, PaiVepo Domboshava is transforming local natural heritage and hospitality into globally connected experiences. OWA Technologies provides the digital infrastructure enabling digital booking, AI-powered guest experiences, and international marketing reach.
                     </p>
                     <p style={{ color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, fontSize: '0.88rem', marginBottom: 24 }}>
-                        This strategic partnership integrates digital reservation systems, smart hospitality tooling, and sustainable tourism development for the Domboshava corridor â€” a model for eco-digital tourism across Africa.
+                        This strategic partnership integrates digital reservation systems, smart hospitality tooling, and sustainable tourism development for the Domboshava corridor — a model for eco-digital tourism across Africa.
                     </p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                         {['Eco-Tourism', 'Digital Hospitality', 'Local Heritage', 'Sustainable Travel', 'AI Integration'].map((t, i) => (
@@ -571,7 +575,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 </div>
             </motion.div>
 
-            {/* â”€â”€ Strategic Pathways â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── Strategic Pathways ───────────────────────────── */}
             <div style={{ marginBottom: 52 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
                     <div style={{ width: 32, height: 1, background: 'rgba(255,255,255,0.35)' }} />
@@ -737,7 +741,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 36 }}>
                     {[
                         { icon: <Handshake size={20} />, title: 'Strategic Alliances', desc: 'Joint service delivery and mutual referrals across Africa.' },
-                        { icon: <TrendingUp size={20} />, title: 'Referral Partners', desc: 'Earn 5%â€“15% commission on every referred client.' },
+                        { icon: <TrendingUp size={20} />, title: 'Referral Partners', desc: 'Earn 5%–15% commission on every referred client.' },
                         { icon: <Globe size={20} />, title: 'Technology Partners', desc: 'Integrate your platform with OWA\'s automation infrastructure.' },
                     ].map((p, i) => (
                         <motion.div
@@ -763,9 +767,9 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// 3. ABOUT OWA PAGE (Intelligence Repository â€” from screenshots)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
+// 3. ABOUT OWA PAGE (Intelligence Repository — from screenshots)
+// ════════════════════════════════════════════════════════════════
 const DocSection: React.FC<{ num: string; title: string; cards: { heading: string; text: string }[] }> = ({ num, title, cards }) => (
     <div style={{ marginBottom: 48 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28 }}>
@@ -801,9 +805,69 @@ export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                     <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.6)', maxWidth: 500 }}>Architecting the future of African digital sovereignty from the heart of Harare.</p>
                 </div>
             </div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45 }}
+                style={{
+                    display: 'flex',
+                    gap: 14,
+                    flexWrap: 'wrap',
+                    marginTop: -28,
+                    marginBottom: 44,
+                    justifyContent: 'center'
+                }}
+            >
+                <a
+                    href="/OWA_Strategic_Manifesto_2026.pdf"
+                    download
+                    className="btn"
+                    style={{
+                        background: 'linear-gradient(135deg, #1d4ed8, #2563EB)',
+                        color: '#fff',
+                        padding: '12px 20px',
+                        borderRadius: 999,
+                        fontSize: '0.8rem',
+                        fontWeight: 800,
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase' as const,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        border: '1px solid rgba(255,255,255,0.18)'
+                    }}
+                >
+                    Download OWA Manifesto <Download size={14} />
+                </a>
+
+                <a
+                    href="/OWA_Official_Pricing_2026.pdf"
+                    download
+                    className="btn"
+                    style={{
+                        background: 'rgba(255,255,255,0.06)',
+                        color: '#fff',
+                        padding: '12px 20px',
+                        borderRadius: 999,
+                        fontSize: '0.8rem',
+                        fontWeight: 800,
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase' as const,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        border: '1px solid rgba(255,255,255,0.2)'
+                    }}
+                >
+                    Download Official Pricing <FileText size={14} />
+                </a>
+            </motion.div>
+
             <DocSection num="01" title="Company Overview & Mandate" cards={[
                 { heading: 'Institutional Foundations', text: 'OWA Technologies is a strategic neural architecture hub headquartered in Harare, Zimbabwe. Founded as a direct response to the critical digital divide, OWA exists to empower African enterprises with high-fidelity intelligent systems. We are not merely a software vendor; we are a solutions architect dedicated to reclaiming technical sovereignty for local industries.' },
-                { heading: 'Economic Equalization', text: 'We solve the pervasive friction of legacy models â€” eliminating response latency and administrative overhead. We serve scalable startups and established institutions seeking global-tier technical standards. Our mandate is to transform complexity into clarity through precision architecture, ensuring every business node operates at maximum potential.' },
+                { heading: 'Economic Equalization', text: 'We solve the pervasive friction of legacy models — eliminating response latency and administrative overhead. We serve scalable startups and established institutions seeking global-tier technical standards. Our mandate is to transform complexity into clarity through precision architecture, ensuring every business node operates at maximum potential.' },
             ]} />
             <DocSection num="02" title="Vision Statement & The 2030 Roadmap" cards={[
                 { heading: 'The Neural Goal', text: 'Our vision is an Africa where high-speed neural logic is integrated into every workflow, creating a frictionless economy. We envision African industries as dominant architects, not just consumers, of the new digital era. We are building the infrastructure of 2030 today, utilizing localized intelligence to solve global-scale problems.' },
@@ -826,7 +890,7 @@ export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 { heading: 'Data Sovereignty', text: 'We employ a Privacy-First architecture. User data is never sold or utilized for third-party training. Our presence as a security-focused hub is mandatory for the survival of the digital enterprise in the new era. We protect the integrity of African data against global exploitation with military-grade precision.' },
             ]} />
             <DocSection num="07" title="Trust & Verification Protocol" cards={[
-                { heading: 'Official OWA Verification', text: 'In the real world, no individual can claim affiliation with OWA Technologies without presenting an Official Company ID and receiving direct confirmation from LYKART OSIX (LYKART06 â€“ Node Verification Only). This protocol protects our partners from fraudulent representations and ensures institutional integrity at all times.' },
+                { heading: 'Official OWA Verification', text: 'In the real world, no individual can claim affiliation with OWA Technologies without presenting an Official Company ID and receiving direct confirmation from LYKART OSIX (LYKART06 – Node Verification Only). This protocol protects our partners from fraudulent representations and ensures institutional integrity at all times.' },
                 { heading: 'Cognitive Confidence', text: 'Clients work with OWA because our processes are rooted in professional accountability. We provide exhaustive pre-deployment documentation for every strategic node to ensure zero friction and maximum trust. Every architect in our network is vetted to ensure alignment with OWA\'s Phenomenally Great standards.' },
             ]} />
             <DocSection num="08" title="Inclusivity & Mastery for Everyone" cards={[
@@ -856,9 +920,9 @@ export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 <h2 style={{ fontSize: '1.8rem', fontWeight: 900, marginBottom: 40, letterSpacing: '-0.02em' }}>Our Solutions</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
                     {[
-                        { title: 'AI Automation', desc: 'Intelligent systems that handle tasks automatically', icon: 'ðŸ¤–', color: '#60a5fa' },
-                        { title: 'Web Development', desc: 'Modern websites built with cutting-edge tech', icon: 'ðŸŒ', color: '#8b5cf6' },
-                        { title: 'Cloud Solutions', desc: 'Scalable infrastructure for your business', icon: 'â˜ï¸', color: '#22c55e' },
+                        { title: 'AI Automation', desc: 'Intelligent systems that handle tasks automatically', icon: '🤖', color: '#60a5fa' },
+                        { title: 'Web Development', desc: 'Modern websites built with cutting-edge tech', icon: '🌐', color: '#8b5cf6' },
+                        { title: 'Cloud Solutions', desc: 'Scalable infrastructure for your business', icon: '☁️', color: '#22c55e' },
                     ].map((item, i) => (
                         <motion.div
                             key={i}
@@ -882,9 +946,9 @@ export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// 4. REFERRAL PAGE (unique â€” not a duplicate of Pricing)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
+// 4. REFERRAL PAGE (unique — not a duplicate of Pricing)
+// ════════════════════════════════════════════════════════════════
 export const ReferralPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero
@@ -974,10 +1038,10 @@ export const ReferralPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 <h2 style={{ fontSize: '1.6rem', fontWeight: 900, marginBottom: 32 }}>Collective Movement Advantages</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
                     {[
-                        { title: '40% Commissions', desc: 'Unmatched earning potential in the African tech sector.', icon: 'ðŸ“ˆ' },
-                        { title: '50% Rewards', desc: 'Loyalty discounts that help your business scale efficiently.', icon: 'ðŸ’Ž' },
-                        { title: 'Global Opportunities', desc: 'Connect with international clients and market demand.', icon: 'ðŸŒ' },
-                        { title: 'Marketplace Access', desc: 'Monetize high-demand technical skills instantly.', icon: 'ðŸš€' }
+                        { title: '40% Commissions', desc: 'Unmatched earning potential in the African tech sector.', icon: '📈' },
+                        { title: '50% Rewards', desc: 'Loyalty discounts that help your business scale efficiently.', icon: '💎' },
+                        { title: 'Global Opportunities', desc: 'Connect with international clients and market demand.', icon: '🌍' },
+                        { title: 'Marketplace Access', desc: 'Monetize high-demand technical skills instantly.', icon: '🚀' }
                     ].map((item, i) => (
                         <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 16, padding: '24px', display: 'flex', alignItems: 'center', gap: 16 }}>
                             <span style={{ fontSize: '2.2rem' }}>{item.icon}</span>
@@ -993,9 +1057,9 @@ export const ReferralPage: React.FC<{ open: boolean; onClose: () => void }> = ({
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 5. WEB DEVELOPMENT PAGE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const WebDevPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero badge="Digital Architecture" title="High-Performance<br/><span style='color:#60a5fa'>Web Development</span>" sub="We don't just build websites; we architect digital assets integrated with neural logic and conversion-focused design." />
@@ -1039,9 +1103,9 @@ export const WebDevPage: React.FC<{ open: boolean; onClose: () => void }> = ({ o
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 6. AI AGENTS & AUTOMATION PAGE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const AIAgentsPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero badge="Neural Automation" title="AI Agents &<br/><span style='color:#60a5fa'>Intelligent Workflows</span>" sub="Scale your business horizontally without increasing headcount. Our AI agents handle sales, support, and operations while you sleep." />
@@ -1082,9 +1146,9 @@ export const AIAgentsPage: React.FC<{ open: boolean; onClose: () => void }> = ({
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 7. STARLINK CONNECTIVITY PAGE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const StarlinkPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero badge="Authorized Reseller" title="High-Speed<br/><span style='color:#60a5fa'>Starlink Internet</span>" sub="SpaceX Starlink hardware and professional installation for homes, farms, and businesses across Zimbabwe." />
@@ -1128,9 +1192,9 @@ export const StarlinkPage: React.FC<{ open: boolean; onClose: () => void }> = ({
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 8. CORPORATE IDENTITY PAGE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const CorporatePage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero badge="Visual Sovereignty" title="Corporate Identity<br/><span style='color:#a78bfa'>& Branding</span>" sub="In partnership with GANDS ARTS MEDIA. We architect premium professional identities that command respect in the global market." />
@@ -1161,12 +1225,12 @@ export const CorporatePage: React.FC<{ open: boolean; onClose: () => void }> = (
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 9. GADGET SALES PAGE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
 // GADGETS CAROUSEL COMPONENT (Stripe-style)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 const GadgetCarousel: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -1337,9 +1401,9 @@ export const GadgetPage: React.FC<{ open: boolean; onClose: () => void }> = ({ o
     </PageOverlay>
 );
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 // 9. OWA TECHNOLOGIES MANIFEST
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════════
 export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
         <PageHero badge="The OWA Manifesto" title="OWATECH AI<br/><span style='color:#60a5fa'>PHENOMENALLY GREAT</span>" sub="OWA Technologies is a unified digital organization with multiple branches working as one powerful ecosystem, founded and visioned by LYKART OSIX (LYKART06)." />
@@ -1381,7 +1445,7 @@ export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
             <div style={{ background: 'rgba(37,99,235,0.05)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: 24, padding: '48px', marginBottom: 60 }}>
                 <blockquote style={{ margin: 0 }}>
                     <p style={{ fontSize: '1.4rem', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.6, color: '#fff', marginBottom: 24 }}>
-                        â€œDo not wait for AI and technology to replace you or take your job. Instead, multiply your skills and become undisputed.â€
+                        “Do not wait for AI and technology to replace you or take your job. Instead, multiply your skills and become undisputed.”
                     </p>
                     <footer style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                         <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: '0.8rem' }}>L06</div>
@@ -1394,7 +1458,7 @@ export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
             </div>
 
             <DocSection num="01" title="What OWA Technologies Does" cards={[
-                { heading: 'AAA â€” AI Automation Agency', text: 'We are an AI Automation Agency focused on delivering modern digital solutions that produce measurable results. From intelligent chatbots to lead generation, we architect the future of business operations.' },
+                { heading: 'AAA — AI Automation Agency', text: 'We are an AI Automation Agency focused on delivering modern digital solutions that produce measurable results. From intelligent chatbots to lead generation, we architect the future of business operations.' },
                 { heading: 'Efficiency Optimization', text: 'We help businesses increase efficiency up to 98% through AI-powered websites, voice assistants, and automated customer support systems that never leave customers unattended.' }
             ]} />
 
@@ -1429,25 +1493,25 @@ export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
             <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 24, padding: '48px', marginBottom: 60 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 32 }}>
                     <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#60a5fa', fontSize: '0.82rem', fontWeight: 900 }}>04</div>
-                    <h2 style={{ fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#60a5fa' }}>Founderâ€™s Credibility</h2>
+                    <h2 style={{ fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#60a5fa' }}>Founder’s Credibility</h2>
                 </div>
                 <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32, lineHeight: 1.8 }}>
-                    The Founder of OWA Technologies, LYKART OSIX (LYKART06), is a published author in The Herald, Zimbabweâ€™s leading national newspaper. His early advocacy for ICT and youth empowerment is documented in national archives.
+                    The Founder of OWA Technologies, LYKART OSIX (LYKART06), is a published author in The Herald, Zimbabwe’s leading national newspaper. His early advocacy for ICT and youth empowerment is documented in national archives.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                     <a href="https://www.heraldonline.co.zw/taking-advantage-of-ict-in-schools/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.05)', color: '#fff', textDecoration: 'none' }}>
                         <FileText size={18} color="#60a5fa" />
                         <div style={{ flex: 1 }}>
                             <span style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700 }}>Taking Advantage of ICT in Schools</span>
-                            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>The Herald Â· National Publication</span>
+                            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>The Herald · National Publication</span>
                         </div>
                         <ExternalLink size={14} color="rgba(255,255,255,0.3)" />
                     </a>
                     <a href="https://www.heraldonline.co.zw/my-experience-of-a-lifetime-2/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.05)', color: '#fff', textDecoration: 'none' }}>
                         <FileText size={18} color="#60a5fa" />
                         <div style={{ flex: 1 }}>
-                            <span style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700 }}>My Experience of a Lifetime â€“ Herald House</span>
-                            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>The Herald Â· National Publication</span>
+                            <span style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700 }}>My Experience of a Lifetime – Herald House</span>
+                            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>The Herald · National Publication</span>
                         </div>
                         <ExternalLink size={14} color="rgba(255,255,255,0.3)" />
                     </a>
@@ -1485,10 +1549,10 @@ export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                 {/* Featured Products */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, marginTop: 40 }}>
                     {[
-                        { icon: 'ðŸ’»', title: 'Laptops', desc: 'High-performance' },
-                        { icon: 'ðŸŽ®', title: 'Gaming', desc: 'Next-gen' },
-                        { icon: 'ðŸ“¡', title: 'Starlink', desc: 'Global Internet' },
-                        { icon: 'ðŸ¤–', title: 'AI Agents', desc: 'Automation' }
+                        { icon: '💻', title: 'Laptops', desc: 'High-performance' },
+                        { icon: '🎮', title: 'Gaming', desc: 'Next-gen' },
+                        { icon: '📡', title: 'Starlink', desc: 'Global Internet' },
+                        { icon: '🤖', title: 'AI Agents', desc: 'Automation' }
                     ].map((item, i) => (
                         <div key={i} style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 16, padding: '24px', border: '1px solid rgba(255,255,255,0.08)' }}>
                             <div style={{ fontSize: '2rem', marginBottom: 12 }}>{item.icon}</div>

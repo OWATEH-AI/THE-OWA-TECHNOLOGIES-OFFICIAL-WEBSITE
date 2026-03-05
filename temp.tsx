@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, type Easing } from 'framer-motion';
 import {
     X, ArrowRight, CheckCircle, Globe, Zap, Brain, Briefcase,
-    HeartPulse, Building2, MessageSquare, Wifi,
+    ShoppingCart, Scale, HeartPulse, Building2, MessageSquare, Wifi,
     Monitor, Gift, Search, GraduationCap, Phone, Mail, MapPin,
     Instagram, Youtube, Facebook, ChevronRight, Code, Utensils, Award, Linkedin, Shield, Users
 } from 'lucide-react';
@@ -542,10 +542,7 @@ export const IndustryUseCasesPage: React.FC<{ open: boolean; onClose: () => void
                     { src: '/BBF PICS/IMG-20240728-WA0039.jpg', label: 'Hospitality Training' },
                     { src: '/PAIVEPO/476249544_595226256636942_3277987789476881716_n.jpg', label: 'Heritage Tech' },
                     { src: '/OPPAH\'S HOME AND DECO/IMG-20251128-WA0006.jpg', label: 'Interior Automation' },
-                    { src: '/assets/owa_blogs/Hands_on_Code.jpg', label: 'Engineering' },
-                    { src: '/OSIX/people-working-with-ai-operated-devices.jpg', label: 'AI Operations' },
-                    { src: '/assets/owa_blogs/ITAD_AFRICA_NEW_LAPTOPS-958345_1200x800.jpg', label: 'Tech Supply' },
-                    { src: '/PAIVEPO/480686289_605497398943161_452631945375857340_n.jpg', label: 'Career Growth' },
+                    { src: '/assets/owa_blogs/Hands_on_Code.jpg', label: 'Engineering' }
                 ]} />
             </div>
 
@@ -561,6 +558,9 @@ export const IndustryUseCasesPage: React.FC<{ open: boolean; onClose: () => void
                     <a href="#contact" onClick={onClose} className="btn btn-primary" style={{ padding: '16px 40px', fontSize: '1rem' }}>
                         Book A Strategy Call <ArrowRight size={16} />
                     </a>
+                    <a href="#solutions" onClick={(e) => { e.preventDefault(); /* Logic to switch to solution */ }} className="btn btn-secondary" style={{ padding: '16px 40px', fontSize: '1rem' }}>
+                        View Our Tools
+                    </a>
                 </div>
             </motion.div>
         </div>
@@ -570,248 +570,196 @@ export const IndustryUseCasesPage: React.FC<{ open: boolean; onClose: () => void
 // ════════════════════════════════════════════════════════════════
 // 3. DETAILED PRICING PAGE
 // ════════════════════════════════════════════════════════════════
-export const DetailedPricingPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
-    const [showPricingNotice, setShowPricingNotice] = useState(true);
+export const DetailedPricingPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
+    <PageOverlay open={open} onClose={onClose}>
+        <PageHero
+            badge="Official Pricing"
+            title="Transparent Pricing.<br/>Zero Surprises."
+            sub="NO FEES ARE TO BE PAID until you have been shown and approved a demo review. This is OWA's culture — you only proceed when you have total trust and clarity in the solution."
+        />
+        <div style={wrap}>
+            {/* Trust Mandate */}
+            <div style={{
+                borderLeft: '3px solid #2563EB', paddingLeft: 24, marginBottom: 52,
+                display: 'flex', flexDirection: 'column', gap: 12,
+            }}>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                    {['LOCAL & INTERNATIONAL PAYMENTS', 'REFERRAL COMMISSIONS'].map((tag, i) => (
+                        <span key={i} style={{
+                            padding: '6px 16px', borderRadius: 99, fontSize: '0.72rem', fontWeight: 700,
+                            letterSpacing: '0.1em', background: 'rgba(37,99,235,0.12)',
+                            border: '1px solid rgba(37,99,235,0.25)', color: '#60a5fa',
+                        }}>{tag}</span>
+                    ))}
+                </div>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', maxWidth: 640 }}>
+                    All listed figures are rough architectural estimates. We encourage you to contact us directly to structure a package that aligns precisely with your specific budget.
+                </p>
+            </div>
 
-    return (
-        <PageOverlay open={open} onClose={onClose}>
-            <PageHero
-                badge="Official Pricing"
-                title="Transparent Pricing.<br/>Zero Surprises."
-                sub="NO FEES ARE TO BE PAID until you have been shown and approved a demo review. This is OWA's culture — you only proceed when you have total trust and clarity in the solution."
-            />
-            <div style={wrap}>
-                {showPricingNotice && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.45, ease: smoothEasing }}
-                        style={{
-                            position: 'sticky',
-                            top: 16,
-                            zIndex: 25,
-                            marginBottom: 24,
-                            background: 'linear-gradient(135deg, rgba(37,99,235,0.25), rgba(16,185,129,0.15))',
-                            border: '1px solid rgba(96,165,250,0.35)',
-                            borderRadius: 14,
-                            padding: '14px 40px 14px 16px',
-                            boxShadow: '0 8px 30px rgba(0,0,0,0.28)',
-                            backdropFilter: 'blur(6px)'
-                        }}
-                    >
-                        <motion.button
-                            type="button"
-                            aria-label="Close pricing notice"
-                            onClick={() => setShowPricingNotice(false)}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.88 }}
-                            transition={{ duration: 0.18 }}
-                            style={{
-                                position: 'absolute',
-                                top: 8,
-                                right: 10,
-                                width: 24,
-                                height: 24,
-                                borderRadius: 999,
-                                border: '1px solid rgba(255,255,255,0.25)',
-                                background: 'rgba(0,0,0,0.25)',
-                                color: '#fff',
-                                fontSize: '0.9rem',
-                                cursor: 'pointer',
-                                lineHeight: 1
-                            }}
-                        >
-                            ×
-                        </motion.button>
-                        <p style={{ margin: 0, fontSize: '0.86rem', color: 'rgba(255,255,255,0.92)', lineHeight: 1.6 }}>
-                            Prices vary by location. Local and international fees differ depending on currency and current exchange rates. Inbox us for a quotation — we create custom-tailored budget packages, and our pricing remains affordable. Enquiry and booking a meeting with us is free.
-                        </p>
-                    </motion.div>
-                )}
+            <PricingBlock num="01" icon={<Globe size={22} />} title="Web Architecture & Development">
+                <PriceRow cap="Entry Level (Basic)" desc="Static Landing Page, Portfolio, or Blog. 3–5 Pages. Mobile Responsive." price="$150 – $350" />
+                <PriceRow cap="Professional Level" desc="Dynamic CMS, SEO Optimization, 5–10 Pages, Social Integration." price="$350 – $650" />
+                <PriceRow cap="E-Commerce" desc="Online Store, Payment Gateway Integration, Inventory Management." price="$650 – $1,200" />
+                <PriceRow cap="3D Animated & Immersive" desc="Interactive 3D Models, WebGL/Three.js Integration, High-End Visual Effects." price="$1,000 – $2,500+" />
+                <PriceRow cap="Advanced Web Solutions" desc="Custom AI features, Embedded Chatbot, Automated Workflows, High-Fidelity UX." price="Custom Quote" />
+            </PricingBlock>
 
-                {/* Trust Mandate */}
+            <PricingBlock num="02" icon={<MessageSquare size={22} />} title="Automation & WhatsApp Agents" note="WE PROVIDE MULTILINGUAL 24/7 CRM AGENTS FOR ALL LEVEL 3 ENTERPRISE SOLUTIONS TO ENSURE NON-STOP GLOBAL ENGAGEMENT.">
+                <PriceRow cap="Level 1: FAQ Bot" desc="Rule-based WhatsApp/Web responses. Auto-reply." price="Setup: $250–$300" sub="Retainer: $50+/mo" />
+                <PriceRow cap="Level 2: Smart Agent" desc="Lead Qualification, CRM Integration, Appointment Booking." price="Setup: $300–$500" sub="Retainer: $120+/mo" />
+                <PriceRow cap="Level 3: Enterprise AI" desc="Full LLM Integration (GPT/Claude), Context Awareness, Complex Logic. Multilingual 24/7 CRM Agents." price="Setup: $800+" sub="Retainer: $300+/mo" />
+            </PricingBlock>
+
+            <PricingBlock num="03" icon={<Wifi size={22} />} title="Connectivity (Starlink Authorized)" note="PLEASE INBOX ANY OF OUR CONTACTS FOR AN OFFICIAL STARLINK KIT HARDWARE QUOTE AND DELIVERY AVAILABILITY.">
+                <PriceRow cap="Starlink Kits (Hardware)" desc="Official Authorized Retail of Starlink Kits. Hardware availability varies." price="Contact for Quote" />
+                <PriceRow cap="Installation & Setup" desc="Professional mounting, alignment, and network optimization." price="Contact for Quote" />
+                <PriceRow cap="Enterprise Connectivity" desc="Custom bandwidth orchestration and reliability testing for business nodes." price="Inbox for Quote" />
+            </PricingBlock>
+
+            <PricingBlock num="04" icon={<Brain size={22} />} title="Corporate Identity & Media (OWA Partner GANDS ARTS MEDIA)">
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
+                    <div style={{ borderRight: '1px solid rgba(255,255,255,0.06)' }}>
+                        <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#60a5fa', padding: '16px 24px', textTransform: 'uppercase' }}>Graphic Design & Branding</p>
+                        <PriceRow cap="Professional Logo" desc="" price="$50 – $150" />
+                        <PriceRow cap="Digital Flyer/Poster" desc="" price="$20 – $50" />
+                        <PriceRow cap="Company Profile" desc="" price="$100 – $250" />
+                        <PriceRow cap="Business Cards (Design)" desc="" price="$15 – $40" />
+                        <PriceRow cap="Letterhead Design" desc="" price="$15 – $30" />
+                        <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#60a5fa', padding: '20px 24px 12px', textTransform: 'uppercase' }}>Legal & Admin Documents</p>
+                        <PriceRow cap="Business Contract Draft" desc="" price="$40 – $100" />
+                        <PriceRow cap="MOU / NDA Drafting" desc="" price="$30 – $80" />
+                        <PriceRow cap="Project Proposal" desc="" price="$50 – $120" />
+                        <PriceRow cap="CV / Resume Design" desc="" price="$15 – $40" />
+                    </div>
+                    <div>
+                        <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#60a5fa', padding: '16px 24px', textTransform: 'uppercase' }}>Professional Media Services</p>
+                        <PriceRow cap="Photoshooting (Indoor/Outdoor)" desc="" price="Inbox for Pricing" />
+                        <PriceRow cap="AI Video Advertisements" desc="" price="Contact for Quote" />
+                        <PriceRow cap="Product Photography" desc="" price="Inbox for Quote" />
+                    </div>
+                </div>
+            </PricingBlock>
+
+            <PricingBlock num="05" icon={<Monitor size={22} />} title="Gadget Sales (Hardware Solutions)" note="CONTACT ANY OF OUR OFFICIAL CHANNELS TO RECEIVE A PERSONALIZED QUOTE AND PRICING FOR CURRENT GADGET STOCK.">
+                <PriceRow cap="High-End Laptops" desc="Premium laptops for developers, designers, and executives." price="Contact for Full Quote" />
+                <PriceRow cap="Workstations & Desktops" desc="High-performance setups for AI processing and heavy workloads." price="Contact for Full Quote" />
+                <PriceRow cap="Accessories & Peripherals" desc="Monitors, keyboards, and server hardware." price="Inbox for Prices" />
+            </PricingBlock>
+
+            <PricingBlock num="06" icon={<Search size={22} />} title="Strategic AI Architecture Hub" note="FEES FOR ARCHITECTURAL CONSULTING ARE PRIVATE AND DETERMINED BASED ON ENTERPRISE SCALE. REACH OUT VIA OFFICIAL CHANNELS.">
+                <PriceRow cap="AI Consulting & Auditing" desc="High-level strategic analysis, infrastructure review, and roadmap development by LYKART06 and senior consultants." price="Contact for Pricing" />
+            </PricingBlock>
+
+            <PricingBlock num="07" icon={<GraduationCap size={22} />} title="OWA Academy & Tactical Training">
+                <PriceRow cap="Basic AI Onboarding" desc="Introduction to utilizing AI agents for everyday professional tasks." price="Inbox to Enquire" />
+                <PriceRow cap="Architect Masterclass" desc="One-on-one training on building complex automation logic and CRM sync." price="Inbox to Enquire" />
+            </PricingBlock>
+
+            <PricingBlock num="08" icon={<Gift size={22} />} title="Rewards, Referrals & Promotions" note="REFERRAL COMMISSIONS ARE PAID OUT UPON SUCCESSFUL PROJECT AUTHORIZATION. CONTACT US TO JOIN THE PARTNER NETWORK.">
+                <PriceRow cap="Referral Commission" desc="Earn a high-value commission for every client successfully onboarded through your network." price="5% – 15% (Contact us)" />
+                <PriceRow cap="Loyalty Discounts" desc="Reduced rates for returning partners and multi-phase digital transformations." price="Up to 20% Off" />
+                <PriceRow cap="Strategic Promotions" desc="Limited-time offers on specific automation nodes and branding packages." price="Inbox for Details" />
+            </PricingBlock>
+
+            <div style={{
+                marginTop: 60,
+                borderTop: '1px solid rgba(255,255,255,0.08)',
+                paddingTop: 40,
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: 24,
+                marginBottom: 40
+            }}>
+                <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(37,99,235,0.4)' }}
+                    style={{
+                        background: 'linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(30,64,175,0.1) 100%)',
+                        borderRadius: 20, padding: 32, border: '1px solid rgba(37,99,235,0.2)', transition: 'all 0.3s ease'
+                    }}
+                >
+                    <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>💰</div>
+                    <h3 style={{ fontWeight: 900, marginBottom: 12, fontSize: '1.2rem' }}>ROI on AI Automation</h3>
+                    <p style={{ opacity: 0.8, fontSize: '0.9rem', lineHeight: 1.6 }}>
+                        Calculate operational savings when transitioning from manual support to Level 3 Neural Agents.
+                    </p>
+                </motion.div>
+                <motion.div
+                    whileHover={{ scale: 1.02, borderColor: 'rgba(16,185,129,0.4)' }}
+                    style={{
+                        background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.1) 100%)',
+                        borderRadius: 20, padding: 32, border: '1px solid rgba(16,185,129,0.2)', transition: 'all 0.3s ease'
+                    }}
+                >
+                    <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>📈</div>
+                    <h3 style={{ fontWeight: 900, marginBottom: 12, fontSize: '1.2rem' }}>The Cost of Scaling</h3>
+                    <p style={{ opacity: 0.8, fontSize: '0.9rem', lineHeight: 1.6 }}>
+                        Structural digital infrastructure as a capital asset in the 2026 African tech market.
+                    </p>
+                </motion.div>
+            </div>
+
+            {/* World-Class Discovery Call CTA Section (Talk with Us) */}
+            <div style={{
+                background: 'linear-gradient(135deg, rgba(37,99,235,0.1), rgba(27,63,160,0.05))',
+                borderRadius: 24,
+                border: '1px solid rgba(37,99,235,0.2)',
+                padding: '64px 40px',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
                 <div style={{
-                    borderLeft: '3px solid #2563EB', paddingLeft: 24, marginBottom: 52,
-                    display: 'flex', flexDirection: 'column', gap: 12,
-                }}>
-                    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                        {['LOCAL & INTERNATIONAL PAYMENTS', 'REFERRAL COMMISSIONS'].map((tag, i) => (
-                            <span key={i} style={{
-                                padding: '6px 16px', borderRadius: 99, fontSize: '0.72rem', fontWeight: 700,
-                                letterSpacing: '0.1em', background: 'rgba(37,99,235,0.12)',
-                                border: '1px solid rgba(37,99,235,0.25)', color: '#60a5fa',
-                            }}>{tag}</span>
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                    background: 'radial-gradient(circle at 50% 120%, rgba(37,99,235,0.15), transparent 70%)',
+                    pointerEvents: 'none'
+                }} />
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                >
+                    <span style={{
+                        fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase',
+                        color: '#60a5fa', background: 'rgba(37,99,235,0.1)', padding: '6px 16px', borderRadius: 99,
+                        marginBottom: 24, display: 'inline-block'
+                    }}>Talk With Us</span>
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', marginBottom: 20, lineHeight: 1.2 }}>READY TO INITIALIZE YOUR PROJECT?</h2>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: 640, margin: '0 auto 40px', fontSize: '1rem', lineHeight: 1.8 }}>
+                        The final architectural roadmap is defined during your <strong>Discovery Call</strong>.
+                        No project is too complex—from localized automations to global enterprise AI nodes.
+                    </p>
+
+                    <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <a
+                            href="https://wa.me/263772479492?text=Hello%20OWA%20Technologies%2C%20I%20am%20interested%20in%20exploring%20your%20AI%20Solutions%20for%20my%20business.%20I%20would%20like%20to%20schedule%20a%20consultation%20to%20discuss%20how%20OWA%20can%20help%20automate%20and%20grow%20my%20operations.%20Thank%20you!"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn btn-primary"
+                            style={{ padding: '16px 36px', borderRadius: 99, fontSize: '0.88rem' }}
+                        >
+                            <WhatsAppIcon size={20} /> INITIALIZE VIA WHATSAPP
+                        </a>
+                        <a
+                            href="mailto:info@owatech-ai.com"
+                            className="btn btn-outline"
+                            style={{ padding: '16px 36px', borderRadius: 99, fontSize: '0.88rem' }}
+                        >
+                            SECURE EMAIL ENQUIRY
+                        </a>
+                    </div>
+
+                    <div style={{ marginTop: 40, display: 'flex', gap: 32, justifyContent: 'center', opacity: 0.4 }}>
+                        {['NDA GUARANTEED', '30-DAY SUPPORT INCLUDED', 'PROMPT DELIVERY'].map((cred, i) => (
+                            <span key={i} style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em' }}>{cred}</span>
                         ))}
                     </div>
-                    <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', maxWidth: 640 }}>
-                        All listed figures are rough architectural estimates. We encourage you to contact us directly to structure a package that aligns precisely with your specific budget.
-                    </p>
-                </div>
-
-                <PricingBlock num="01" icon={<Globe size={22} />} title="Web Architecture & Development">
-                    <PriceRow cap="Entry Level (Basic)" desc="Static Landing Page, Portfolio, or Blog. 3–5 Pages. Mobile Responsive." price="$150 – $350" />
-                    <PriceRow cap="Professional Level" desc="Dynamic CMS, SEO Optimization, 5–10 Pages, Social Integration." price="$350 – $650" />
-                    <PriceRow cap="E-Commerce" desc="Online Store, Payment Gateway Integration, Inventory Management." price="$650 – $1,200" />
-                    <PriceRow cap="3D Animated & Immersive" desc="Interactive 3D Models, WebGL/Three.js Integration, High-End Visual Effects." price="$1,000 – $2,500+" />
-                    <PriceRow cap="Advanced Web Solutions" desc="Custom AI features, Embedded Chatbot, Automated Workflows, High-Fidelity UX." price="Custom Quote" />
-                </PricingBlock>
-
-                <PricingBlock num="02" icon={<MessageSquare size={22} />} title="Automation & WhatsApp Agents" note="WE PROVIDE MULTILINGUAL 24/7 CRM AGENTS FOR ALL LEVEL 3 ENTERPRISE SOLUTIONS TO ENSURE NON-STOP GLOBAL ENGAGEMENT.">
-                    <PriceRow cap="Level 1: FAQ Bot" desc="Rule-based WhatsApp/Web responses. Auto-reply." price="Setup: $250–$300" sub="Retainer: $50+/mo" />
-                    <PriceRow cap="Level 2: Smart Agent" desc="Lead Qualification, CRM Integration, Appointment Booking." price="Setup: $300–$500" sub="Retainer: $120+/mo" />
-                    <PriceRow cap="Level 3: Enterprise AI" desc="Full LLM Integration (GPT/Claude), Context Awareness, Complex Logic. Multilingual 24/7 CRM Agents." price="Setup: $800+" sub="Retainer: $300+/mo" />
-                </PricingBlock>
-
-                <PricingBlock num="03" icon={<Wifi size={22} />} title="Connectivity (Starlink Authorized)" note="PLEASE INBOX ANY OF OUR CONTACTS FOR AN OFFICIAL STARLINK KIT HARDWARE QUOTE AND DELIVERY AVAILABILITY.">
-                    <PriceRow cap="Starlink Kits (Hardware)" desc="Official Authorized Retail of Starlink Kits. Hardware availability varies." price="Contact for Quote" />
-                    <PriceRow cap="Installation & Setup" desc="Professional mounting, alignment, and network optimization." price="Contact for Quote" />
-                    <PriceRow cap="Enterprise Connectivity" desc="Custom bandwidth orchestration and reliability testing for business nodes." price="Inbox for Quote" />
-                </PricingBlock>
-
-                <PricingBlock num="04" icon={<Brain size={22} />} title="Corporate Identity & Media (OWA Partner GANDS ARTS MEDIA)">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
-                        <div style={{ borderRight: '1px solid rgba(255,255,255,0.06)' }}>
-                            <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#60a5fa', padding: '16px 24px', textTransform: 'uppercase' }}>Graphic Design & Branding</p>
-                            <PriceRow cap="Professional Logo" desc="" price="$50 – $150" />
-                            <PriceRow cap="Digital Flyer/Poster" desc="" price="$20 – $50" />
-                            <PriceRow cap="Company Profile" desc="" price="$100 – $250" />
-                            <PriceRow cap="Business Cards (Design)" desc="" price="$15 – $40" />
-                            <PriceRow cap="Letterhead Design" desc="" price="$15 – $30" />
-                            <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#60a5fa', padding: '20px 24px 12px', textTransform: 'uppercase' }}>Legal & Admin Documents</p>
-                            <PriceRow cap="Business Contract Draft" desc="" price="$40 – $100" />
-                            <PriceRow cap="MOU / NDA Drafting" desc="" price="$30 – $80" />
-                            <PriceRow cap="Project Proposal" desc="" price="$50 – $120" />
-                            <PriceRow cap="CV / Resume Design" desc="" price="$15 – $40" />
-                        </div>
-                        <div>
-                            <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#60a5fa', padding: '16px 24px', textTransform: 'uppercase' }}>Professional Media Services</p>
-                            <PriceRow cap="Photoshooting (Indoor/Outdoor)" desc="" price="Inbox for Pricing" />
-                            <PriceRow cap="AI Video Advertisements" desc="" price="Contact for Quote" />
-                            <PriceRow cap="Product Photography" desc="" price="Inbox for Quote" />
-                        </div>
-                    </div>
-                </PricingBlock>
-
-                <PricingBlock num="05" icon={<Monitor size={22} />} title="Gadget Sales (Hardware Solutions)" note="CONTACT ANY OF OUR OFFICIAL CHANNELS TO RECEIVE A PERSONALIZED QUOTE AND PRICING FOR CURRENT GADGET STOCK.">
-                    <PriceRow cap="High-End Laptops" desc="Premium laptops for developers, designers, and executives." price="Contact for Full Quote" />
-                    <PriceRow cap="Workstations & Desktops" desc="High-performance setups for AI processing and heavy workloads." price="Contact for Full Quote" />
-                    <PriceRow cap="Accessories & Peripherals" desc="Monitors, keyboards, and server hardware." price="Inbox for Prices" />
-                </PricingBlock>
-
-                <PricingBlock num="06" icon={<Search size={22} />} title="Strategic AI Architecture Hub" note="FEES FOR ARCHITECTURAL CONSULTING ARE PRIVATE AND DETERMINED BASED ON ENTERPRISE SCALE. REACH OUT VIA OFFICIAL CHANNELS.">
-                    <PriceRow cap="AI Consulting & Auditing" desc="High-level strategic analysis, infrastructure review, and roadmap development by LYKART06 and senior consultants." price="Contact for Pricing" />
-                </PricingBlock>
-
-                <PricingBlock num="07" icon={<GraduationCap size={22} />} title="OWA Academy & Tactical Training">
-                    <PriceRow cap="Basic AI Onboarding" desc="Introduction to utilizing AI agents for everyday professional tasks." price="Inbox to Enquire" />
-                    <PriceRow cap="Architect Masterclass" desc="One-on-one training on building complex automation logic and CRM sync." price="Inbox to Enquire" />
-                </PricingBlock>
-
-                <PricingBlock num="08" icon={<Gift size={22} />} title="Rewards, Referrals & Promotions" note="REFERRAL COMMISSIONS ARE PAID OUT UPON SUCCESSFUL PROJECT AUTHORIZATION. CONTACT US TO JOIN THE PARTNER NETWORK.">
-                    <PriceRow cap="Referral Commission" desc="Earn a high-value commission for every client successfully onboarded through your network." price="5% – 15% (Contact us)" />
-                    <PriceRow cap="Loyalty Discounts" desc="Reduced rates for returning partners and multi-phase digital transformations." price="Up to 20% Off" />
-                    <PriceRow cap="Strategic Promotions" desc="Limited-time offers on specific automation nodes and branding packages." price="Inbox for Details" />
-                </PricingBlock>
-
-                <div style={{
-                    marginTop: 60,
-                    borderTop: '1px solid rgba(255,255,255,0.08)',
-                    paddingTop: 40,
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: 24,
-                    marginBottom: 40
-                }}>
-                    <motion.div
-                        whileHover={{ scale: 1.02, borderColor: 'rgba(37,99,235,0.4)' }}
-                        style={{
-                            background: 'linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(30,64,175,0.1) 100%)',
-                            borderRadius: 20, padding: 32, border: '1px solid rgba(37,99,235,0.2)', transition: 'all 0.3s ease'
-                        }}
-                    >
-                        <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>💰</div>
-                        <h3 style={{ fontWeight: 900, marginBottom: 12, fontSize: '1.2rem' }}>ROI on AI Automation</h3>
-                        <p style={{ opacity: 0.8, fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Calculate operational savings when transitioning from manual support to Level 3 Neural Agents.
-                        </p>
-                    </motion.div>
-                    <motion.div
-                        whileHover={{ scale: 1.02, borderColor: 'rgba(16,185,129,0.4)' }}
-                        style={{
-                            background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.1) 100%)',
-                            borderRadius: 20, padding: 32, border: '1px solid rgba(16,185,129,0.2)', transition: 'all 0.3s ease'
-                        }}
-                    >
-                        <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>📈</div>
-                        <h3 style={{ fontWeight: 900, marginBottom: 12, fontSize: '1.2rem' }}>The Cost of Scaling</h3>
-                        <p style={{ opacity: 0.8, fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Structural digital infrastructure as a capital asset in the 2026 African tech market.
-                        </p>
-                    </motion.div>
-                </div>
-
-                {/* World-Class Discovery Call CTA Section (Talk with Us) */}
-                <div style={{
-                    background: 'linear-gradient(135deg, rgba(37,99,235,0.1), rgba(27,63,160,0.05))',
-                    borderRadius: 24,
-                    border: '1px solid rgba(37,99,235,0.2)',
-                    padding: '64px 40px',
-                    textAlign: 'center',
-                    position: 'relative',
-                    overflow: 'hidden'
-                }}>
-                    <div style={{
-                        position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                        background: 'radial-gradient(circle at 50% 120%, rgba(37,99,235,0.15), transparent 70%)',
-                        pointerEvents: 'none'
-                    }} />
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                    >
-                        <span style={{
-                            fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase',
-                            color: '#60a5fa', background: 'rgba(37,99,235,0.1)', padding: '6px 16px', borderRadius: 99,
-                            marginBottom: 24, display: 'inline-block'
-                        }}>Talk With Us</span>
-                        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', marginBottom: 20, lineHeight: 1.2 }}>READY TO INITIALIZE YOUR PROJECT?</h2>
-                        <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: 640, margin: '0 auto 40px', fontSize: '1rem', lineHeight: 1.8 }}>
-                            The final architectural roadmap is defined during your <strong>Discovery Call</strong>.
-                            No project is too complex—from localized automations to global enterprise AI nodes.
-                        </p>
-
-                        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a
-                                href="https://wa.me/263772479492?text=Hello%20OWA%20Technologies%2C%20I%20am%20interested%20in%20exploring%20your%20AI%20Solutions%20for%20my%20business.%20I%20would%20like%20to%20schedule%20a%20consultation%20to%20discuss%20how%20OWA%20can%20help%20automate%20and%20grow%20my%20operations.%20Thank%20you!"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn-primary"
-                                style={{ padding: '16px 36px', borderRadius: 99, fontSize: '0.88rem' }}
-                            >
-                                <WhatsAppIcon size={20} /> INITIALIZE VIA WHATSAPP
-                            </a>
-                            <a
-                                href="mailto:info@owatech-ai.com"
-                                className="btn btn-outline"
-                                style={{ padding: '16px 36px', borderRadius: 99, fontSize: '0.88rem' }}
-                            >
-                                SECURE EMAIL ENQUIRY
-                            </a>
-                        </div>
-
-                        <div style={{ marginTop: 40, display: 'flex', gap: 32, justifyContent: 'center', opacity: 0.4 }}>
-                            {['NDA GUARANTEED', '30-DAY SUPPORT INCLUDED', 'PROMPT DELIVERY'].map((cred, i) => (
-                                <span key={i} style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em' }}>{cred}</span>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
+                </motion.div>
             </div>
-        </PageOverlay >
-    );
-};
+        </div>
+    </PageOverlay>
+);
 
 // ════════════════════════════════════════════════════════════════
 // 4. ACADEMY PAGE
@@ -1155,7 +1103,7 @@ export const ProgramsPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                         { src: '/side menu blogs/OWA Core/Whisk_7a2c3e8aeb58207a2544f55db851f494dr.png', alt: 'OWA Dev Hub' },
                         { src: '/side menu blogs/OWA Core/Whisk_9c456414f9d667c9fbf4729068a8d4eedr.png', alt: 'AI Future' },
                         { src: '/side menu blogs/OWA Core/ZHfo1O8H8PpzDiRGQexDwPBtZpA.png', alt: 'Digital Mastery' },
-                        { src: '/assets/blog/african_tech_office_collaboration_ai.png', alt: 'AI Education' }
+                        { src: '/assets/owa_blogs/Future-of-Web-Development-OWA.jpg', alt: 'AI Education' }
                     ]} />
                 </div>
             </section>
@@ -1178,7 +1126,7 @@ export const ProgramsPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                             { src: '/BBF PICS/IMG-20230719-WA0044.jpg', alt: 'Hospitality Lab' },
                             { src: '/BBF PICS/IMG-20240728-WA0039.jpg', alt: 'Culinary Students' },
                             { src: '/BBF PICS/IMG-20240811-WA0004.jpg', alt: 'BBF Classroom' },
-                            { src: '/BBF PICS/IMG-20230719-WA0045.jpg', alt: 'Graduation Prep' }
+                            { src: '/side menu blogs/BBF College/Whisk_8bfcbaa6de28f17aab1458cd5b9e532eeg.jpeg', alt: 'Graduation Prep' }
                         ]} />
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: 12 }}>
@@ -1206,7 +1154,7 @@ export const ProgramsPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                             { src: '/PAIVEPO/476278681_595239183302316_7350128413608806885_n.jpg', alt: 'Peer Learning' },
                             { src: '/PAIVEPO/480686289_605497398943161_452631945375857340_n.jpg', alt: 'Career Architecture' },
                             { src: '/PAIVEPO/WhatsApp Image 2026-03-02 at 17.44.45.jpeg', alt: 'Strategic Guidance' },
-                            { src: '/PAIVEPO/482004118_610977468395154_2259091242149512423_n.jpg', alt: 'PaiVepo Mentors' }
+                            { src: '/side menu blogs/PaiVepo/Whisk_4add2a7c97e169da1cf4a910eefc4c94dr.png', alt: 'PaiVepo Mentors' }
                         ]} />
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: 12 }}>
@@ -1350,9 +1298,9 @@ export const BlogPage: React.FC<{ open: boolean; onClose: () => void }> = ({ ope
                             <div style={{ position: 'relative', height: 220, overflow: 'hidden' }}>
                                 <motion.img
                                     src={post.image}
-                                    initial={{ scale: 1.12, x: '0%', y: '0%' }}
-                                    animate={{ scale: [1.12, 1.02, 1.1, 1.12], x: ['0%', '-1.5%', '1.5%', '0%'], y: ['0%', '1.5%', '-1.5%', '0%'] }}
-                                    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                                    initial={{ scale: 1 }}
+                                    animate={{ scale: [1, 1.05, 1] }}
+                                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 />
                                 <div style={{ position: 'absolute', top: 20, left: 20, background: 'rgba(0,0,0,0.8)', padding: '6px 12px', borderRadius: 8 }}>

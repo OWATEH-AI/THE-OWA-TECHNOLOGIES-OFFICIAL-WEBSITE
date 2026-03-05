@@ -348,7 +348,7 @@ const App: React.FC = () => {
 
   // Track active section based on scroll position
   useEffect(() => {
-    const sections = ['hero', 'services', 'training', 'why-us', 'pricing', 'contact'];
+    const sections = ['hero', 'about', 'services', 'solutions', 'pricing', 'contact'];
 
     const onScroll = () => {
       const scrollPosition = window.scrollY + 100; // Offset for navbar
@@ -373,9 +373,9 @@ const App: React.FC = () => {
 
   const navLinks = [
     { label: 'Home', href: '#hero', id: 'hero' },
-    { label: 'Services', href: '#services', id: 'services' },
-    { label: 'AI Training', href: '#training', id: 'training' },
-    { label: 'About', href: '#why-us', id: 'why-us' },
+    { label: 'Services', href: '#about', id: 'about' },
+    { label: 'AI Training', href: '#services', id: 'services' },
+    { label: 'About', href: '#solutions', id: 'solutions' },
     { label: 'Pricing', href: '#pricing', id: 'pricing' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];
