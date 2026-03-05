@@ -24,4 +24,7 @@ dist-ssr
 *.sw?
 
 # Large binary assets (images/media) - host on CDN or Git LFS instead
-public/assets/owa_blogs/
+
+
+# Local Netlify folder
+.netlify
