@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, type Easing } from 'framer-motion';
 import {
     X, ArrowRight, CheckCircle, Globe, Zap, Brain, Briefcase,
@@ -15,73 +15,89 @@ const smoothEasing: Easing = [0.25, 0.1, 0.25, 1];
 // ============================================================
 
 const AnimatedGallery: React.FC<{ images: { src: string; label: string }[] }> = ({ images }) => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [hoveredIndex, setHoveredIndex] = useState<string | null>(null);
+
+    // Duplicate images to create a seamless infinite scrolling loop
+    const duplicatedImages = [...images, ...images];
 
     return (
         <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: 16,
+            position: 'relative',
+            width: '100%',
+            overflow: 'hidden',
             marginBottom: 52,
             marginTop: 40,
+            padding: '10px 0',
+            display: 'flex'
         }}>
-            {images.map((img, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: smoothEasing }}
-                    onHoverStart={() => setHoveredIndex(i)}
-                    onHoverEnd={() => setHoveredIndex(null)}
-                    style={{
-                        height: 160,
-                        borderRadius: 12,
-                        overflow: 'hidden',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        position: 'relative',
-                        cursor: 'pointer',
-                    }}
-                >
-                    <motion.img
-                        src={img.src}
-                        alt={img.label}
-                        animate={{
-                            scale: hoveredIndex === i ? 1.1 : 1,
-                        }}
-                        transition={{ duration: 0.6, ease: smoothEasing }}
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                        }}
-                    />
+            {/* Elegant fade gradients on the left and right edges for that premium look */}
+            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, #04091a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #04091a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+            <motion.div
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+                style={{ display: 'flex', gap: 16 }}
+            >
+                {duplicatedImages.map((img, idx) => (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: hoveredIndex === i ? 1 : 0 }}
-                        transition={{ duration: 0.3 }}
+                        key={`${img.src}-${idx}`}
+                        onHoverStart={() => setHoveredIndex(img.src)}
+                        onHoverEnd={() => setHoveredIndex(null)}
                         style={{
-                            position: 'absolute',
-                            inset: 0,
-                            background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                            display: 'flex',
-                            alignItems: 'flex-end',
-                            justifyContent: 'center',
-                            padding: '12px',
+                            height: 180,
+                            width: 280, // Fixed width so cards don't squeeze
+                            flexShrink: 0,
+                            borderRadius: 12,
+                            overflow: 'hidden',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            position: 'relative',
+                            cursor: 'pointer',
                         }}
                     >
-                        <span style={{
-                            fontSize: '0.65rem',
-                            fontWeight: 700,
-                            textTransform: 'uppercase',
-                            color: '#60a5fa',
-                            letterSpacing: '0.1em',
-                        }}>
-                            {img.label}
-                        </span>
+                        <motion.img
+                            src={img.src}
+                            alt={img.label}
+                            animate={{
+                                scale: hoveredIndex === img.src ? 1.15 : 1.05,
+                                rotate: hoveredIndex === img.src ? 1 : 0,
+                            }}
+                            transition={{
+                                scale: { duration: 1.5, ease: smoothEasing },
+                                rotate: { duration: 2, ease: smoothEasing }
+                            }}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                            }}
+                        />
+                        <motion.div
+                            animate={{ opacity: hoveredIndex === img.src ? 1 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            style={{
+                                position: 'absolute',
+                                inset: 0,
+                                background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                                display: 'flex',
+                                alignItems: 'flex-end',
+                                justifyContent: 'center',
+                                padding: '12px',
+                            }}
+                        >
+                            <span style={{
+                                fontSize: '0.65rem',
+                                fontWeight: 700,
+                                textTransform: 'uppercase',
+                                color: '#60a5fa',
+                                letterSpacing: '0.1em',
+                            }}>
+                                {img.label}
+                            </span>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
-            ))}
+                ))}
+            </motion.div>
         </div>
     );
 };
@@ -136,7 +152,7 @@ export const PageOverlay: React.FC<PageOverlayProps> = ({ open, onClose, childre
                         position: 'fixed', inset: 0, zIndex: 210,
                         background: '#04091a',
                         overflowY: 'auto',
-                        paddingTop: 80,
+                        paddingTop: 24,
                     }}
                 >
                     {/* Close */}
@@ -161,10 +177,56 @@ export const PageOverlay: React.FC<PageOverlayProps> = ({ open, onClose, childre
         )}
     </AnimatePresence>
 );
+// ─── Component Helpers ──────────────────────────────────────────────────
+const KenBurnsSlideshow: React.FC<{ images: { src: string; alt: string }[]; interval?: number; seed?: number }> = ({ images, interval = 6000, seed = 0 }) => {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => setIndex(prev => (prev + 1) % images.length), interval);
+        return () => clearInterval(timer);
+    }, [images.length, interval]);
+
+    const getInitial = (idx: number) => {
+        const variants = [
+            { opacity: 0, scale: 1.15, x: '2%', y: '1%' },
+            { opacity: 0, scale: 1.2, x: '-2%', y: '-1%' },
+            { opacity: 0, scale: 1.12, rotate: 1 },
+            { opacity: 0, scale: 1.18, y: '2%' }
+        ];
+        return variants[(idx + seed) % variants.length];
+    };
+
+    return (
+        <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', background: '#000' }}>
+            <AnimatePresence mode="popLayout">
+                <motion.div
+                    key={index}
+                    initial={getInitial(index)}
+                    animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, transition: { duration: 1.5 } }}
+                    transition={{
+                        opacity: { duration: 1.5, ease: "easeInOut" },
+                        scale: { duration: (interval / 1000) + 1, ease: "linear" },
+                        x: { duration: interval / 1000, ease: "linear" },
+                        y: { duration: interval / 1000, ease: "linear" }
+                    }}
+                    style={{ position: 'absolute', inset: 0 }}
+                >
+                    <img
+                        src={images[index].src}
+                        alt={images[index].alt}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                </motion.div>
+            </AnimatePresence>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)', pointerEvents: 'none' }} />
+        </div>
+    );
+};
 
 // ─── Shared section helpers ────────────────────────────────────────────────
 const PageHero: React.FC<{ badge: string; title: string; sub: string }> = ({ badge, title, sub }) => (
-    <div style={{ padding: '60px 0 48px', borderBottom: '1px solid rgba(255,255,255,0.06)', maxWidth: 1200, margin: '0 auto', paddingLeft: 40, paddingRight: 40 }}>
+    <div style={{ padding: '24px 0 48px', borderBottom: '1px solid rgba(255,255,255,0.06)', maxWidth: 1200, margin: '0 auto', paddingLeft: 40, paddingRight: 40 }}>
         <span style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.25)',
@@ -468,11 +530,11 @@ export const IndustryUseCasesPage: React.FC<{ open: boolean; onClose: () => void
                     </div>
                 </div>
                 <div style={{ borderRadius: 20, overflow: 'hidden', height: 320, border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
-                    <Slideshow images={[
+                    <KenBurnsSlideshow images={[
                         { src: '/assets/blog/african_farmers_drone_tech_zimbabwe.png', alt: 'Agriculture drone technology' },
-                        { src: '/assets/owa_blogs/AdvanceQuip-59.jpg', alt: 'Agri Equipment' },
-                        { src: '/assets/blog/zimbabwe_harare_futuristic_skyline_ai.png', alt: 'Future tech' },
-                        { src: '/assets/owa_blogs/WhatsApp%20Image%202025-07-14%20at%2015.10.20.jpeg', alt: 'Agri Innovation' }
+                        { src: '/assets/blog/smart_farming_collage.png', alt: 'Smart Farming Dashboard' },
+                        { src: '/assets/blog/farmer_tablet_ai.jpg', alt: 'Farmer using tablet AI overlay' },
+                        { src: '/assets/blog/smart_farming_drone_ai.jpg', alt: 'AI Drone scanning agricultural field' }
                     ]} />
                 </div>
             </motion.div>
@@ -542,7 +604,7 @@ export const IndustryUseCasesPage: React.FC<{ open: boolean; onClose: () => void
                     { src: '/BBF PICS/IMG-20240728-WA0039.jpg', label: 'Hospitality Training' },
                     { src: '/PAIVEPO/476249544_595226256636942_3277987789476881716_n.jpg', label: 'Heritage Tech' },
                     { src: '/OPPAH\'S HOME AND DECO/IMG-20251128-WA0006.jpg', label: 'Interior Automation' },
-                    { src: '/assets/owa_blogs/Hands_on_Code.jpg', label: 'Engineering' },
+                    { src: '/assets/owa_blogs/potential-threats-automated-factories-Blog-1024x598-1.png', label: 'Manufacturing' },
                     { src: '/OSIX/people-working-with-ai-operated-devices.jpg', label: 'AI Operations' },
                     { src: '/assets/owa_blogs/ITAD_AFRICA_NEW_LAPTOPS-958345_1200x800.jpg', label: 'Tech Supply' },
                     { src: '/PAIVEPO/480686289_605497398943161_452631945375857340_n.jpg', label: 'Career Growth' },
@@ -838,6 +900,7 @@ export const AcademyPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                         ],
                         quote: '"Faster response times, 24/7 availability, and reduced workload for your team."',
                         cta: 'GET BASICS GUIDE',
+                        actionUrl: 'https://wa.me/263772479492?text=Hello%20OWA%20Technologies%2C%20I%20would%20like%20to%20get%20the%20Foundation%20AI%20Automation%20Basics%20Guide%20for%20Beginners.%20Please%20send%20it%20to%20me.'
                     },
                     {
                         badge: 'APPLICATION', badgeColor: '#0891b2', title: 'Intermediate',
@@ -850,6 +913,7 @@ export const AcademyPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                         ],
                         quote: 'MORE EFFICIENCY, LESS STRESS, BETTER SCALABILITY.',
                         cta: 'EXPLORE USE CASES',
+                        actionUrl: 'https://wa.me/263772479492?text=Hello%20OWA%20Technologies%2C%20I%20am%20interested%20in%20exploring%20Intermediate%20practical%20AI%20use%20cases%20and%20business%20impact%20applications.%20I%20want%20to%20learn%20more.'
                     },
                     {
                         badge: 'ARCHITECTURE', badgeColor: '#7c3aed', title: 'Expert Level',
@@ -863,6 +927,7 @@ export const AcademyPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                         ],
                         quote: '"Automation should augment human teams, not replace strategic thinking."',
                         cta: 'CONSULT EXPERTS',
+                        actionUrl: 'https://wa.me/263772479492?text=Hello%20OWA%20Technologies%2C%20I%20am%20looking%20for%20Expert%20Level%20advanced%20AI%20architecture.%20I%20would%20like%20to%20consult%20with%20your%20expert%20designers%20and%20architects.'
                     },
                 ].map((track, i) => (
                     <div key={i} style={{
@@ -890,12 +955,13 @@ export const AcademyPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                         <div style={{ marginTop: 20, padding: '12px 16px', background: 'rgba(255,255,255,0.03)', borderRadius: 8, fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', fontStyle: 'italic' }}>
                             {track.quote}
                         </div>
-                        <button style={{
+                        <a href={track.actionUrl} target="_blank" rel="noreferrer" style={{
                             marginTop: 24, background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.3)',
                             color: '#60a5fa', borderRadius: 8, padding: '12px 16px', fontSize: '0.75rem', fontWeight: 700,
                             letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer', width: '100%',
-                            transition: 'all 0.2s',
-                        }}>{track.cta}</button>
+                            display: 'inline-block', textAlign: 'center', transition: 'all 0.2s',
+                            textDecoration: 'none'
+                        }}>{track.cta}</a>
                     </div>
                 ))}
             </div>

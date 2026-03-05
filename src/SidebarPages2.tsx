@@ -60,6 +60,56 @@ const KenBurnsSlideshow: React.FC<{ images: { src: string; alt: string }[]; inte
     );
 };
 
+// Vertical scroll slideshow with smooth transitions - no black screen
+const HorizontalSlideshow: React.FC<{ images: { src: string; alt: string }[]; interval?: number; seed?: number }> = ({ images, interval = 5000, seed = 0 }) => {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => setIndex(prev => (prev + 1) % images.length), interval);
+        return () => clearInterval(timer);
+    }, [images.length, interval]);
+
+    const getInitial = (idx: number) => {
+        // Diagonal combined scroll with zoom - distinct from left frame
+        const variants = [
+            { opacity: 0, scale: 1.15, x: '12%', y: '12%' },
+            { opacity: 0, scale: 1.12, x: '-12%', y: '10%' },
+            { opacity: 0, scale: 1.15, x: '10%', y: '-15%' },
+            { opacity: 0, scale: 1.12, x: '-10%', y: '-12%' },
+            { opacity: 0, scale: 1.08, x: '8%', y: '-6%' },
+            { opacity: 0, scale: 1.08, x: '-8%', y: '6%' }
+        ];
+        return variants[(idx + seed) % variants.length];
+    };
+
+    return (
+        <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', background: '#000', borderRadius: 'inherit' }}>
+            <AnimatePresence mode="popLayout">
+                <motion.div
+                    key={index}
+                    initial={getInitial(index)}
+                    animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{
+                        opacity: { duration: 1.2, ease: smoothEasing },
+                        x: { duration: 2.5, ease: smoothEasing },
+                        y: { duration: 2.5, ease: smoothEasing },
+                        scale: { duration: 2.8, ease: smoothEasing }
+                    }}
+                    style={{ position: 'absolute', inset: 0 }}
+                >
+                    <img
+                        src={images[index].src}
+                        alt={images[index].alt}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                </motion.div>
+            </AnimatePresence>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 40%)', pointerEvents: 'none' }} />
+        </div>
+    );
+};
+
 const Slideshow: React.FC<{ images: { src: string; alt: string }[]; interval?: number }> = ({ images, interval = 5000 }) => {
     const [index, setIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -122,7 +172,7 @@ const VideoPlayer: React.FC<{ src: string; poster?: string }> = ({ src, poster }
 );
 
 const PageHero: React.FC<{ badge: string; title: string; sub: string }> = ({ badge, title, sub }) => (
-    <div style={{ padding: '60px 0 48px', borderBottom: '1px solid rgba(255,255,255,0.06)', maxWidth: 1200, margin: '0 auto', paddingLeft: 40, paddingRight: 40 }}>
+    <div style={{ padding: '24px 0 48px', borderBottom: '1px solid rgba(255,255,255,0.06)', maxWidth: 1200, margin: '0 auto', paddingLeft: 40, paddingRight: 40 }}>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.25)', borderRadius: 99, padding: '6px 16px', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: '#60a5fa', marginBottom: 24 }}>{badge}</span>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', fontWeight: 900, letterSpacing: '-0.04em', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: title }} />
         <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.55)', maxWidth: 620, lineHeight: 1.8 }}>{sub}</p>
@@ -499,22 +549,32 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
             {/* Master pool of all BBF images to rotate through cinematic frame */}
             {(() => {
                 const bbfAllImages = [
-                    { src: "/BBF PICS/IMG-20260221-WA0005.jpg", alt: "BBF Students" },
-                    { src: "/BBF PICS/IMG-20240811-WA0006.jpg", alt: "Hospitality Training" },
-                    { src: "/BBF PICS/IMG-20240811-WA0004.jpg", alt: "Practitioners" },
-                    { src: "/BBF PICS/IMG-20240729-WA0013.jpg", alt: "Vocational Skills" },
                     { src: "/BBF PICS/IMG-20230128-WA0004.jpg", alt: "Catering Class" },
+                    { src: "/BBF PICS/IMG-20230128-WA0005.jpg", alt: "Student Practice" },
+                    { src: "/BBF PICS/IMG-20230719-WA0043.jpg", alt: "Kitchen Training" },
                     { src: "/BBF PICS/IMG-20230719-WA0044.jpg", alt: "Student Graduation" },
-                    { src: "/BBF PICS/WhatsApp Image 2026-03-02 at 17.44.47 (1).jpeg", alt: "Skills Development" }
+                    { src: "/BBF PICS/IMG-20230719-WA0045.jpg", alt: "Certificate Award" },
+                    { src: "/BBF PICS/IMG-20240728-WA0039.jpg", alt: "Hospitality Training" },
+                    { src: "/BBF PICS/IMG-20240728-WA0040.jpg", alt: "Culinary Skills" },
+                    { src: "/BBF PICS/IMG-20240728-WA0125.jpg", alt: "Practical Session" },
+                    { src: "/BBF PICS/IMG-20240728-WA0128.jpg", alt: "Field Practice" },
+                    { src: "/BBF PICS/IMG-20240728-WA0129.jpg", alt: "Workshop" },
+                    { src: "/BBF PICS/IMG-20240729-WA0013.jpg", alt: "Vocational Skills" },
+                    { src: "/BBF PICS/IMG-20240811-WA0004.jpg", alt: "Practitioners" },
+                    { src: "/BBF PICS/IMG-20240811-WA0006.jpg", alt: "Training Session" },
+                    { src: "/BBF PICS/IMG-20260221-WA0005.jpg", alt: "BBF Students" },
+                    { src: "/BBF PICS/WhatsApp Image 2026-03-02 at 17.44.46 (1).jpeg", alt: "Event Coverage" },
+                    { src: "/BBF PICS/WhatsApp Image 2026-03-02 at 17.44.47 (1).jpeg", alt: "Skills Development" },
+                    { src: "/BBF PICS/WhatsApp Image 2026-03-02 at 17.44.47.jpeg", alt: "Group Activity" }
                 ];
 
                 return (
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 32 }}>
-                        <div style={{ height: 320, borderRadius: 16, overflow: 'hidden' }}>
-                            <KenBurnsSlideshow images={bbfAllImages.slice(0, 4)} interval={7000} seed={1} />
+                    <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 0.95fr', gap: 40, marginBottom: 48, alignItems: 'center' }}>
+                        <div style={{ height: 400, borderRadius: 16, overflow: 'hidden' }}>
+                            <KenBurnsSlideshow images={bbfAllImages.slice(0, 9)} interval={7000} seed={1} />
                         </div>
-                        <div style={{ height: 320, borderRadius: 16, overflow: 'hidden' }}>
-                            <KenBurnsSlideshow images={bbfAllImages.slice(3, 7)} interval={8000} seed={2} />
+                        <div style={{ height: 340, borderRadius: 16, overflow: 'hidden', boxShadow: '0 16px 32px rgba(0,0,0,0.4)' }}>
+                            <HorizontalSlideshow images={bbfAllImages.slice(9, 17)} interval={5500} seed={3} />
                         </div>
                     </div>
                 );

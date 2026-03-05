@@ -80,6 +80,9 @@ const heroImages = [
   '/assets/hero/hero_unsplash_2.jpg',
   '/assets/hero/hero_unsplash_3.jpg',
   '/assets/hero/hero_unsplash_4.jpg',
+  '/assets/blog/bbf_college_education_ai.png',
+  '/assets/blog/gands_arts_media_studio.png',
+  '/assets/blog/paivepo_domboshava_eco_tourism.png',
 ];
 
 // ============================================================
@@ -307,13 +310,42 @@ const App: React.FC = () => {
   const [activePage, setActivePage] = useState<PageId>(null);
   const [activeSection, setActiveSection] = useState<string>('hero');
 
+  // Reset to hero section on page refresh/load
+  useEffect(() => {
+    setActivePage(null);
+  }, []);
+
   const openPage = (id: PageId) => {
     setSidebarOpen(false);
     setTimeout(() => setActivePage(id), 120);
   };
   const closePage = () => setActivePage(null);
   const [scrolled, setScrolled] = useState(false);
-  // State for rendering content inside the sidebar
+  // Form State
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [showContactPicker, setShowContactPicker] = useState(false);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in the required fields (Name, Email, and Message).");
+      return;
+    }
+    setShowContactPicker(true);
+  };
+
+  const sendEmail = () => {
+    const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`);
+    window.location.href = `mailto:info@owatech-ai.com?subject=${subject}&body=${body}`;
+    setShowContactPicker(false);
+  };
+
+  const sendWhatsApp = () => {
+    const text = encodeURIComponent(`*New Inquiry from Website*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Company:* ${formData.company}\n\n*Message:*\n${formData.message}`);
+    window.open(`https://wa.me/263772479492?text=${text}`, '_blank');
+    setShowContactPicker(false);
+  };
 
   // ── Right-side sidebar pages (grouped) ──────────────────────────────
   type SidebarEntry = { label: string; pageId?: PageId; href?: string; highlight?: boolean; isGroup?: boolean };
@@ -1358,35 +1390,74 @@ const App: React.FC = () => {
               borderRadius: 16,
               padding: '44px 40px',
             }}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleFormSubmit}
           >
-            {[
-              { label: 'Full Name', type: 'text', placeholder: 'LYKART OSIX' },
-              { label: 'Email', type: 'email', placeholder: 'info@owatech-ai.com' },
-              { label: 'Company / Institution', type: 'text', placeholder: 'OWA TECHNOLOGIES' },
-            ].map((field) => (
-              <div key={field.label}>
-                <label className="text-label" style={{ display: 'block', marginBottom: 8 }}>{field.label}</label>
-                <input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  style={{
-                    width: '100%', padding: '14px 16px',
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid var(--border)',
-                    borderRadius: 8, color: 'white',
-                    fontFamily: 'inherit', fontSize: '0.9rem',
-                    outline: 'none', transition: 'border-color 0.2s',
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = 'rgba(37,99,235,0.6)'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
-                />
-              </div>
-            ))}
+            <div>
+              <label className="text-label" style={{ display: 'block', marginBottom: 8 }}>Full Name</label>
+              <input
+                type="text"
+                placeholder="LYKART OSIX"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                style={{
+                  width: '100%', padding: '14px 16px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 8, color: 'white',
+                  fontFamily: 'inherit', fontSize: '0.9rem',
+                  outline: 'none', transition: 'border-color 0.2s',
+                }}
+                onFocus={(e) => e.target.style.borderColor = 'rgba(37,99,235,0.6)'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+              />
+            </div>
+            <div>
+              <label className="text-label" style={{ display: 'block', marginBottom: 8 }}>Email</label>
+              <input
+                type="email"
+                placeholder="info@owatech-ai.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                style={{
+                  width: '100%', padding: '14px 16px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 8, color: 'white',
+                  fontFamily: 'inherit', fontSize: '0.9rem',
+                  outline: 'none', transition: 'border-color 0.2s',
+                }}
+                onFocus={(e) => e.target.style.borderColor = 'rgba(37,99,235,0.6)'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+              />
+            </div>
+            <div>
+              <label className="text-label" style={{ display: 'block', marginBottom: 8 }}>Company / Institution</label>
+              <input
+                type="text"
+                placeholder="OWA TECHNOLOGIES"
+                value={formData.company}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                style={{
+                  width: '100%', padding: '14px 16px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 8, color: 'white',
+                  fontFamily: 'inherit', fontSize: '0.9rem',
+                  outline: 'none', transition: 'border-color 0.2s',
+                }}
+                onFocus={(e) => e.target.style.borderColor = 'rgba(37,99,235,0.6)'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+              />
+            </div>
             <div>
               <label className="text-label" style={{ display: 'block', marginBottom: 8 }}>Message</label>
               <textarea
                 placeholder="Tell us about your project or goals..."
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                required
                 rows={4}
                 style={{
                   width: '100%', padding: '14px 16px',
@@ -1512,10 +1583,28 @@ const App: React.FC = () => {
 
           {/* Bottom */}
           <div style={{
+            position: 'relative',
             borderTop: '1px solid var(--border)', paddingTop: 32,
             display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             flexWrap: 'wrap', gap: 16,
           }}>
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: '50%',
+              transform: 'translate(-50%, -100%)',
+              background: '#000',
+              padding: '4px 18px 2px',
+              fontSize: '0.62rem',
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              color: '#60a5fa',
+              fontWeight: 900,
+              borderBottom: '1px solid #60a5fa',
+              lineHeight: 1
+            }}>
+              WEBSITE POWERED BY OWA TECHNOLOGIES. BY LYKART06.
+            </div>
             <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               © 2026 OWA Technologies. All Rights Reserved.
             </p>
@@ -1523,6 +1612,7 @@ const App: React.FC = () => {
               info@owatech-ai.com
             </p>
           </div>
+
         </div>
       </footer>
       {/* ===================== PAGE OVERLAYS ===================== */}
@@ -1544,6 +1634,78 @@ const App: React.FC = () => {
       <OWATechPage open={activePage === 'owa-tech'} onClose={closePage} />
       <BlogPage open={activePage === 'blog'} onClose={closePage} />
       <PrivacyPolicyPage open={activePage === 'privacy-policy'} onClose={closePage} />
+
+      {/* Choice Modal for Contact */}
+      <AnimatePresence>
+        {showContactPicker && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowContactPicker(false)}
+              style={{
+                position: 'fixed', inset: 0, zIndex: 1000,
+                background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)',
+              }}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              style={{
+                position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+                width: '90%', maxWidth: 440, zIndex: 1001,
+                background: '#111', border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: 24, padding: '40px 32px', textAlign: 'center',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+              }}
+            >
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 12 }}>How would you like to proceed?</h3>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', marginBottom: 32 }}>Choose your preferred method to send your message.</p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <button
+                  onClick={sendEmail}
+                  className="btn"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#e5e5e5';
+                    e.currentTarget.style.transform = 'scale(1.02)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                  style={{ background: '#ffffff', color: '#000000', fontWeight: 800, border: 'none', width: '100%', padding: '20px', cursor: 'pointer', transition: 'all 0.2s', zIndex: 1002, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <Mail size={20} color="#2563EB" style={{ marginRight: 12 }} /> Proceed with Gmail
+                </button>
+                <button
+                  onClick={sendWhatsApp}
+                  className="btn"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(37,211,102,0.15)';
+                    e.currentTarget.style.borderColor = 'rgba(37,211,102,0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(37,211,102,0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(37,211,102,0.2)';
+                  }}
+                  style={{ background: 'rgba(37,211,102,0.1)', border: '1px solid rgba(37,211,102,0.2)', width: '100%', padding: '20px', color: '#25D366', cursor: 'pointer', transition: 'all 0.2s', zIndex: 1002, position: 'relative' }}
+                >
+                  <WhatsAppIcon size={20} /> Proceed with WhatsApp
+                </button>
+                <button
+                  onClick={() => setShowContactPicker(false)}
+                  style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem', marginTop: 12, cursor: 'pointer' }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── Footer Social Icons (Bottom Left) ────────────────────────── */}
     </>
