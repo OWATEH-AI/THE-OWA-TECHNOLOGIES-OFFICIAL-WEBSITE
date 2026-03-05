@@ -1,6 +1,5 @@
 name = "owa-technologies"
 compatibility_date = "2024-03-05"
-pages_build_output_dir = "dist"
 
-[build]
-command = "npm run build"
+[assets]
+directory = "./dist"
