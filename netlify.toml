@@ -16,30 +16,21 @@
   to = "/index.html"
   status = 200
 
-# HTTP security headers — world-class security posture
+# Basic HTTP security headers
 [[headers]]
   for = "/*"
   [headers.values]
-    # Prevent clickjacking
     X-Frame-Options = "DENY"
-    # Disable content sniffing
     X-Content-Type-Options = "nosniff"
-    # Referrer policy
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    # XSS protection (legacy browsers)
     X-XSS-Protection = "1; mode=block"
-    # Permissions policy — minimal footprint
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    # Content Security Policy
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https:; frame-ancestors 'none';"
 
-# Cache static assets aggressively (Vite hashes filenames)
+# Cache static assets aggressively
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Cache images
+# Light caching for images
 [[headers]]
   for = "*.jpg"
   [headers.values]
@@ -60,9 +51,7 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
-# Environment context — production optimizations
-[context.production]
-  command = "npm run build"
-
-[context.deploy-preview]
-  command = "npm run build"
+[[headers]]
+  for = "*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
