@@ -1,57 +1,8 @@
-# ============================================================
-# OWA TECHNOLOGIES — NETLIFY DEPLOYMENT CONFIGURATION
-# ============================================================
-
 [build]
-  # Command to build the project
   command = "npm run build"
-  # Directory to publish (Vite output)
   publish = "dist"
-  # Node version
-  environment = { NODE_VERSION = "20" }
 
-# SPA redirect: all routes serve index.html (React Router support)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Basic HTTP security headers
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-
-# Cache static assets aggressively
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Light caching for images
-[[headers]]
-  for = "*.jpg"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-
-[[headers]]
-  for = "*.jpeg"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-
-[[headers]]
-  for = "*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-
-[[headers]]
-  for = "*.webp"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-
-[[headers]]
-  for = "*.mp4"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
