@@ -4,11 +4,18 @@ import {
     X, ArrowRight, CheckCircle, Globe, Zap, Brain, Briefcase,
     HeartPulse, Building2, MessageSquare, Wifi,
     Monitor, Gift, Search, GraduationCap, Phone, Mail, MapPin,
-    Youtube, Facebook, ChevronRight, Code, Utensils, Award, Linkedin, Shield, Users
+    Youtube, Facebook, ChevronRight, Code, Utensils, Award, Shield, Users
 } from 'lucide-react';
 
 // Elegant easing for smooth animations
 const smoothEasing: Easing = [0.25, 0.1, 0.25, 1];
+
+// TikTok Logo SVG (Original - Authentic Brand Logo)
+const TikTokIcon: React.FC<{ size?: number }> = ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+    </svg>
+);
 
 // ============================================================
 // ANIMATED GALLERY COMPONENT - With hover effects and parallax
@@ -1133,7 +1140,7 @@ export const ContactHubPage: React.FC<{ open: boolean; onClose: () => void }> = 
                             { icon: <Youtube size={20} />, href: 'https://youtube.com/@owatech-ai', label: 'YouTube' },
                             { icon: <Facebook size={20} />, href: 'https://facebook.com/OwatechAI', label: 'Facebook' },
                             { icon: <XIcon size={20} />, href: 'https://x.com/owatech_ai', label: 'X' },
-                            { icon: <Linkedin size={20} />, href: 'https://linkedin.com/company/owatech-ai', label: 'LinkedIn' },
+                            { icon: <TikTokIcon size={20} />, href: 'https://tiktok.com/@owatech.ai.com', label: 'TikTok' },
                         ].map((s, i) => (
                             <a key={i} href={s.href} title={s.label} style={{
                                 width: 48, height: 48, borderRadius: 10,

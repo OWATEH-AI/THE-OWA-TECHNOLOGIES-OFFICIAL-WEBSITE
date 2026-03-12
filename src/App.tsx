@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, type Variants, useInView, animate } from 'framer-motion';
 import {
   Menu, X, ChevronRight, Globe, Zap, Shield, Users, GraduationCap,
-  Code2, Cpu, Network, TrendingUp, BookOpen, ArrowRight, CheckCircle, Mail, Linkedin, Star, MoreHorizontal,
+  Code2, Cpu, Network, TrendingUp, BookOpen, ArrowRight, CheckCircle, Mail, Star, MoreHorizontal,
   Facebook, Youtube
 } from 'lucide-react';
 
@@ -1566,10 +1566,9 @@ const App: React.FC = () => {
                   { icon: <Facebook size={18} />, href: 'https://facebook.com/OwatechAI', color: '#1877F2', name: 'Facebook' },
                   { icon: <XIcon size={18} />, href: 'https://x.com/owatech_ai', color: '#ffffff', name: 'X' },
                   { icon: <Youtube size={18} />, href: 'https://youtube.com/@owatech-ai', color: '#FF0000', name: 'YouTube' },
-                  { icon: <Linkedin size={18} />, href: 'https://linkedin.com/company/owatech-ai', color: '#0A66C2', name: 'LinkedIn' },
-                  { icon: <TikTokIcon size={18} />, href: 'https://tiktok.com/@owatech.ai.com', color: '#ffffff', name: 'TikTok', mobileOnly: true },
+                  { icon: <TikTokIcon size={18} />, href: 'https://tiktok.com/@owatech.ai.com', color: '#ffffff', name: 'TikTok' },
                 ].map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noreferrer" title={s.name} className={s.mobileOnly ? 'show-on-mobile-flex' : ''} style={{
+                  <a key={i} href={s.href} target="_blank" rel="noreferrer" title={s.name} style={{
                     width: 44, height: 44, borderRadius: 12,
                     background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
