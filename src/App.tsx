@@ -111,7 +111,7 @@ const HeroSlideshow: React.FC = () => {
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % heroImages.length);
+      setIndex((prev: number) => (prev + 1) % heroImages.length);
     }, interval);
     return () => clearInterval(timer);
   }, [isPaused, interval]);
@@ -188,7 +188,7 @@ const KenBurnsSlideshow: React.FC<{ images: string[]; interval?: number; seed?: 
     const initialDelay = (seed % 3) * 1000;
     const timeout = setTimeout(() => {
       const timer = setInterval(() => {
-        setIndex((prev) => (prev + 1) % images.length);
+        setIndex((prev: number) => (prev + 1) % images.length);
       }, interval);
       return () => clearInterval(timer);
     }, initialDelay);
