@@ -1559,56 +1559,6 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .hero-v-height {
-    height: 100dvh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    padding-bottom: 200px !important; /* Space for the floating stats */
-  }
-
-  .hero-buttons {
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-
-  .hero-buttons .btn {
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  .stats-v-height {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    padding: 20px 0 40px !important;
-    background: transparent !important;
-    border-bottom: none !important;
-    z-index: 5 !important;
-  }
-
-  .stats-grid-landing {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 20px !important;
-    max-width: 500px !important;
-    margin: 0 auto !important;
-  }
-
-  .stats-grid-landing > div:nth-child(n+3) {
-    display: none !important; /* Matches screenshot: only show 2 main stats on mobile landing */
-  }
-
-  .stats-grid-landing .stat-number {
-    font-size: 1.8rem !important;
-  }
-
-  .hero-scroll-indicator {
-    display: none !important;
-  }
-}
-
 .img-res-h {
   height: 400px;
 }
@@ -1616,5 +1566,19 @@ body {
 @media (max-width: 768px) {
   .img-res-h {
     height: 280px !important;
+  }
+}
+
+/* ==========================================
+   HERO SECTION — MOBILE VERTICAL POSITIONING
+   Desktop: content at bottom (flex-end)
+   Mobile : content just below the navbar (flex-start + padding)
+   ========================================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    align-items: flex-start !important;
+    padding-top: 100px !important;
+    padding-bottom: 32px !important;
   }
 }

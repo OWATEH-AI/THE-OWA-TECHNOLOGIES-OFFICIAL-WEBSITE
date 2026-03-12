@@ -1026,7 +1026,7 @@ const App: React.FC = () => {
       </AnimatePresence>
 
       {/* ===================== HERO ===================== */}
-      <section id="hero" className="hero-v-height" style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'flex-end', paddingBottom: 60, overflow: 'hidden' }}>
+      <section id="hero" className="hero-section" style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'flex-end', paddingBottom: 60, overflow: 'hidden' }}>
         {/* Animated Hero Slideshow */}
         <HeroSlideshow />
 
@@ -1050,7 +1050,7 @@ const App: React.FC = () => {
             >
               We build intelligent systems, automate business operations, and train the next generation of African AI talent — from Lagos to Cape Town and beyond.
             </motion.p>
-            <motion.div variants={fadeUp} className="hero-buttons" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <motion.div variants={fadeUp} style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <a href="#services" className="btn btn-primary">
                 Explore Services <ChevronRight size={16} />
               </a>
@@ -1082,9 +1082,9 @@ const App: React.FC = () => {
       </section>
 
       {/* ===================== STATS ===================== */}
-      <section style={{ padding: '40px 0', borderBottom: '1px solid var(--border)' }} className="reveal-on-scroll section-stats stats-v-height">
+      <section style={{ padding: '40px 0', borderBottom: '1px solid var(--border)' }} className="reveal-on-scroll section-stats">
         <div className="container">
-          <div className="stats-grid-landing" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '48px 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '48px 24px' }}>
             {stats.map((s, i) => (
               <motion.div key={i} variants={fadeUp} custom={i} style={{ textAlign: 'center' }}>
                 <div className="stat-number">
