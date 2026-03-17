@@ -151,6 +151,8 @@ const HeroSlideshow: React.FC = () => {
             src={heroImages[index]}
             alt={`Hero ${index + 1}`}
             className="hero-slide-img"
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
             style={{
               width: '100%',
               height: '100%',
@@ -234,6 +236,8 @@ const KenBurnsSlideshow: React.FC<{ images: string[]; interval?: number; seed?: 
           <img
             src={images[index]}
             alt="Training Showcase"
+            loading="lazy"
+            decoding="async"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </motion.div>
@@ -770,6 +774,8 @@ const App: React.FC = () => {
             <img
               src="/assets/owa_logo.jpg"
               alt="OWA Technologies Logo"
+              loading="eager"
+              decoding="async"
               style={{
                 height: 44,
                 width: 44,
@@ -1300,7 +1306,7 @@ const App: React.FC = () => {
             >
               {t.image && (
                 <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <img src={t.image} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={t.image} alt={t.name} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               )}
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -1563,6 +1569,8 @@ const App: React.FC = () => {
                 <img
                   src="/assets/owa_logo.jpg"
                   alt="OWA Technologies Logo"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     height: 44,
                     width: 44,

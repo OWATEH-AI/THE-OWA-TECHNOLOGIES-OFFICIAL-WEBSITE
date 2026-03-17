@@ -51,6 +51,8 @@ const KenBurnsSlideshow: React.FC<{ images: { src: string; alt: string }[]; inte
                     <img
                         src={images[index].src}
                         alt={images[index].alt}
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 </motion.div>
@@ -101,6 +103,8 @@ const HorizontalSlideshow: React.FC<{ images: { src: string; alt: string }[]; in
                     <img
                         src={images[index].src}
                         alt={images[index].alt}
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 </motion.div>
@@ -141,6 +145,8 @@ const Slideshow: React.FC<{ images: { src: string; alt: string }[]; interval?: n
                     <img
                         src={images[index].src}
                         alt={images[index].alt}
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 </motion.div>

@@ -65,6 +65,8 @@ const AnimatedGallery: React.FC<{ images: { src: string; label: string }[] }> = 
                         <motion.img
                             src={img.src}
                             alt={img.label}
+                            loading="lazy"
+                            decoding="async"
                             animate={{
                                 scale: hoveredIndex === img.src ? 1.15 : 1.05,
                                 rotate: hoveredIndex === img.src ? 1 : 0,
@@ -229,6 +231,8 @@ const KenBurnsSlideshow: React.FC<{ images: { src: string; alt: string }[]; inte
                     <img
                         src={images[index].src}
                         alt={images[index].alt}
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 </motion.div>
@@ -380,6 +384,8 @@ const Slideshow: React.FC<{ images: { src: string; alt: string }[] }> = ({ image
                     key={i}
                     src={img.src}
                     alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: i === index ? 1 : 0 }}
                     transition={{ duration: 0.8 }}
@@ -414,7 +420,7 @@ export const SolutionsPage: React.FC<{ open: boolean; onClose: () => void }> = (
                     </p>
                 </div>
                 <div style={{ height: 200, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <img src="/assets/owa_blogs/img_proficiencies_small.png" alt="Engineering Proficiency" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src="/assets/owa_blogs/img_proficiencies_small.png" alt="Engineering Proficiency" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
             </div>
 
