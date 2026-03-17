@@ -3,7 +3,7 @@ import { join, extname, basename } from 'path';
 import sharp from 'sharp';
 import { randomBytes } from 'crypto';
 
-const PUBLIC_DIR = 'C:\\Users\\LYKART06\\OWA TECHNOLOGIES OFFICIAL\\public';
+const PUBLIC_DIR = 'c:\\Users\\LYKART06\\Downloads\\Music\\New folder\\THE-OWA-TECHNOLOGIES-OFFICIAL-WEBSITE-main\\public';
 const TARGET_EXTS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
 let totalSaved = 0;
