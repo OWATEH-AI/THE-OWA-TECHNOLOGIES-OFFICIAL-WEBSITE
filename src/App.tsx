@@ -716,9 +716,9 @@ const App: React.FC = () => {
       features: ['AI in Education Frameworks', 'Classroom AI Tools', 'Curriculum Co-Design', 'Ongoing CPD Support', 'Resource Libraries', 'Community of Practice'],
       cta: 'Register School',
       slideshow: [
-        ...osixImages.slice(15, 30),
+        '/ARTGALZIM/artgalzim_logo.jpg',
         '/ARTGALZIM/artgalzim_building.jpeg',
-        '/ARTGALZIM/artgalzim_logo.jpg'
+        ...osixImages.slice(15, 30)
       ],
       seed: 77
     },
@@ -783,7 +783,7 @@ const App: React.FC = () => {
                 borderRadius: 8,
               }}
             />
-            <span style={{ fontWeight: 800, fontSize: '1rem', letterSpacing: '-0.03em' }}>OWA TECHNOLOGIES</span>
+            <span style={{ fontWeight: 800, fontSize: '1rem', letterSpacing: '-0.03em' }}>OWA TECHNOLOGIES OFFICIALS</span>
           </a>
 
           {/* Desktop Nav */}
@@ -957,7 +957,7 @@ const App: React.FC = () => {
                 borderTop: '1px solid rgba(255,255,255,0.06)',
               }}>
                 <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                  © 2026 OWA Technologies
+                  © 2026 OWA Technologies Officials (OSIX WORLD ARTISTICS)
                 </p>
               </div>
             </motion.div>
@@ -1065,7 +1065,7 @@ const App: React.FC = () => {
               <span className="text-label">Africa's Leading AI Agency</span>
             </motion.div>
             <motion.h1 variants={fadeUp} style={{ marginBottom: 24, textTransform: 'uppercase' }}>
-              Empowering Africa<br />With AI
+              Empowering Africa and<br />the World through AI.<br /><span style={{ color: 'var(--blue-400)' }}>Phenomenally Great.</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -1579,7 +1579,7 @@ const App: React.FC = () => {
                     borderRadius: 8,
                   }}
                 />
-                <span style={{ fontWeight: 800, letterSpacing: '-0.03em' }}>OWA TECHNOLOGIES</span>
+                <span style={{ fontWeight: 800, letterSpacing: '-0.03em' }}>OWA TECHNOLOGIES OFFICIALS</span>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.8, maxWidth: 280 }}>
                 Empowering Africa with AI. Building intelligent systems and empowering digital talent from Cape Town to Cairo.
@@ -1688,11 +1688,11 @@ const App: React.FC = () => {
               lineHeight: 1,
               whiteSpace: 'nowrap'
             }}>
-              <span className="hide-on-mobile">WEBSITE POWERED BY OWA TECHNOLOGIES. BY LYKART06.</span>
-              <span className="show-on-mobile" style={{ display: 'none' }}>POWERED BY OWA TECHNOLOGIES.BY LYKART06.</span>
+              <span className="hide-on-mobile">WEBSITE POWERED BY OWA TECHNOLOGIES OFFICIALS. BY LYKART06 (Samuel T Samoyo).</span>
+              <span className="show-on-mobile" style={{ display: 'none' }}>POWERED BY OWA TECHNOLOGIES OFFICIALS. BY LYKART06 (Samuel T Samoyo).</span>
             </div>
             <p className="footer-copyright" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              © 2026 OWA Technologies. All Rights Reserved.
+              © 2026 OWA TECHNOLOGIES OFFICIALS (OSIX WORLD ARTISTICS). All Rights Reserved.
             </p>
             <p className="footer-email" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               info@owatech-ai.com

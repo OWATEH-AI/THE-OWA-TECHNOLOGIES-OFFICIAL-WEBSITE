@@ -276,7 +276,7 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
     const [tab, setTab] = useState<'teachers' | 'students'>('teachers');
     return (
         <PageOverlay open={open} onClose={onClose}>
-            <PageHero badge="AI for Education" title="Transform Education<br/>With <span style='color:#60a5fa'>Intelligent Systems</span>" sub="OWA Technologies bridges the gap between traditional education and the AI-powered future. Dedicated programs for teachers and students." />
+            <PageHero badge="AI for Education" title="Transform Education<br/>With <span style='color:#60a5fa'>Intelligent Systems</span>" sub="OWA Technologies Officials (OSIX WORLD ARTISTICS) bridges the gap between traditional education and the AI-powered future. Dedicated programs for teachers and students." />
             <div className={wrapClass}>
                 {/* Tabs */}
                 <div style={{ display: 'flex', gap: 12, marginBottom: 48, flexWrap: 'wrap' }}>
@@ -406,7 +406,7 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
                             {[
                                 { badge: 'BEGINNER', color: '#2563EB', title: 'AI Foundations', duration: 'Free Introduction', items: ['What is AI and how does it work?', 'Using AI tools for school projects', 'Introduction to prompt engineering', 'Career paths in AI explained'] },
                                 { badge: 'INTERMEDIATE', color: '#0891b2', title: 'Automation Builder', duration: '2-Week Program', items: ['Build your first chatbot', 'Create automated workflows (n8n/Make)', 'WhatsApp bot development basics', 'Team collaboration on AI projects'] },
-                                { badge: 'ADVANCED', color: '#7c3aed', title: 'Architecture Masterclass', duration: '1:1 with LYKART06', items: ['Full-stack AI system design', 'CRM & API deep integrations', 'Enterprise automation architecture', 'Ethical AI governance & leadership'] },
+                                { badge: 'ADVANCED', color: '#7c3aed', title: 'Architecture Masterclass', duration: '1:1 with Samuel T Samoyo (LYKART06)', items: ['Full-stack AI system design', 'CRM & API deep integrations', 'Enterprise automation architecture', 'Ethical AI governance & leadership'] },
                             ].map((t, i) => (
                                 <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '32px 28px', display: 'flex', flexDirection: 'column' }}>
                                     <span style={{ display: 'inline-block', background: t.color, color: 'white', padding: '4px 14px', borderRadius: 99, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', marginBottom: 20, alignSelf: 'flex-start' }}>{t.badge}</span>
@@ -457,7 +457,7 @@ export const AIforEducationPage: React.FC<{ open: boolean; onClose: () => void }
 // ════════════════════════════════════════════════════════════════
 export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
-        <PageHero badge="Strategic Partnership Ecosystem" title="Unlocking Global Pathways<br/><span style='color:#60a5fa'>From Local Roots</span>" sub="OWA Technologies builds high-impact collaborations with aligned leaders and visionary anchors. Every partnership is selected for its ability to expand opportunity and deliver real-world outcomes." />
+        <PageHero badge="Strategic Partnership Ecosystem" title="Unlocking Global Pathways<br/><span style='color:#60a5fa'>From Local Roots</span>" sub="OWA Technologies Officials (OSIX WORLD ARTISTICS) builds high-impact collaborations with aligned leaders and visionary anchors. Every partnership is selected for its ability to expand opportunity and deliver real-world outcomes." />
         <div className={wrapClass}>
 
             {/* ── Hero Image Grid ─────────────────────────────────── */}
@@ -588,7 +588,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                             </div>
                         </div>
                         <p style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: 16 }}>
-                            Blessed Be Faith College is a leading institution in Zimbabwe dedicated to equipping students with practical, industry-grade skills in hospitality, hotel management, and catering. OWA Technologies partners with Blessed Be Faith to integrate digital skills and AI literacy directly into their curriculum.
+                            Blessed Be Faith College is a leading institution in Zimbabwe dedicated to equipping students with practical, industry-grade skills in hospitality, hotel management, and catering. OWA Technologies Officials partners with Blessed Be Faith to integrate digital skills and AI literacy directly into their curriculum.
                         </p>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
                             {['Hotel & Catering', 'Hospitality Training', 'AI Literacy', 'Community Training', 'Government Programs'].map((t, i) => (
@@ -798,7 +798,7 @@ export const PartnersPage: React.FC<{ open: boolean; onClose: () => void }> = ({
 
             {/* Become a Partner */}
             <div style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.15), rgba(16,185,129,0.1))', border: '1px solid rgba(37,99,235,0.2)', borderRadius: 20, padding: '48px 40px', marginBottom: 32 }}>
-                <h2 style={{ fontSize: '1.6rem', fontWeight: 900, marginBottom: 16, textAlign: 'center' }}>Become an OWA Partner</h2>
+                <h2 style={{ fontSize: '1.6rem', fontWeight: 900, marginBottom: 16, textAlign: 'center' }}>Become an OWA Technologies Officials Partner</h2>
                 <p style={{ color: 'rgba(255,255,255,0.6)', textAlign: 'center', maxWidth: 560, margin: '0 auto 36px', lineHeight: 1.8 }}>We are always looking for strategic partners who share our vision for African digital sovereignty. If your company offers complementary services, let's explore collaboration.</p>
                 <div className="stack-on-tablet" style={{ marginBottom: 36 }}>
                     {[
@@ -851,7 +851,7 @@ const DocSection: React.FC<{ num: string; title: string; cards: { heading: strin
 
 export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
-        <PageHero badge="Institutional Documentation Hub" title="INTELLIGENCE<br/><span style='color:#60a5fa'>REPOSITORY</span>" sub="Authorized Strategic Command by LYKART06 and Senior OWA Consultants." />
+        <PageHero badge="Institutional Documentation Hub" title="INTELLIGENCE<br/><span style='color:#60a5fa'>REPOSITORY</span>" sub="Authorized Strategic Command by Samuel T Samoyo (LYKART OSIX), LYKART06 and Senior OWA Technologies Officials Consultants." />
         <div className={wrapClass}>
             {/* Visionary Hero Image - Products Showcase */}
             <div style={{ height: 450, width: '100%', position: 'relative', borderRadius: 24, overflow: 'hidden', marginBottom: 60, border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -864,7 +864,7 @@ export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #04091a, transparent)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: 40, left: 40 }}>
                     <h2 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: 8 }}>VIBRANT. STRATEGIC. IRREPLACEABLE.</h2>
-                    <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.6)', maxWidth: 500 }}>Architecting the future of African digital sovereignty from the heart of Harare.</p>
+                    <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.6)', maxWidth: 500 }}>OWA Technologies Officials (OSIX WORLD ARTISTICS) — Empowering Africa and the world through AI. Phenomenally Great. Architecting the future of African digital sovereignty from the heart of Harare.</p>
                 </div>
             </div>
 
@@ -928,47 +928,46 @@ export const AboutOWAPage: React.FC<{ open: boolean; onClose: () => void }> = ({
             </motion.div>
             
             <div className="hide-on-mobile">
-
-            <DocSection num="01" title="Company Overview & Mandate" cards={[
-                { heading: 'Institutional Foundations', text: 'OWA Technologies is a strategic neural architecture hub headquartered in Harare, Zimbabwe. Founded as a direct response to the critical digital divide, OWA exists to empower African enterprises with high-fidelity intelligent systems. We are not merely a software vendor; we are a solutions architect dedicated to reclaiming technical sovereignty for local industries.' },
-                { heading: 'Economic Equalization', text: 'We solve the pervasive friction of legacy models — eliminating response latency and administrative overhead. We serve scalable startups and established institutions seeking global-tier technical standards. Our mandate is to transform complexity into clarity through precision architecture, ensuring every business node operates at maximum potential.' },
-            ]} />
-            <DocSection num="02" title="Vision Statement & The 2030 Roadmap" cards={[
-                { heading: 'The Neural Goal', text: 'Our vision is an Africa where high-speed neural logic is integrated into every workflow, creating a frictionless economy. We envision African industries as dominant architects, not just consumers, of the new digital era. We are building the infrastructure of 2030 today, utilizing localized intelligence to solve global-scale problems.' },
-                { heading: 'Phenomenally Great Standard', text: 'At OWA, we believe that everyone is PHENOMENALLY GREAT at particular skills. This is why we are determined to provide PHENOMENALLY GREAT results that match the unique potential of our clients. We do not settle for average output; our architecture is designed for those who demand excellence and irreplaceable market value.' },
-            ]} />
-            <DocSection num="03" title="Mission Statement & Daily Protocol" cards={[
-                { heading: 'Democratic Automation', text: 'Our mission is to democratize access to enterprise-grade automation through practical execution. OWA does not force people; we operate on democracy policies where your understanding and consent are paramount to the architecture\'s success. We strip away the complexity associated with AI, providing clean systems that empower founders.' },
-                { heading: 'Technical Vanguard', text: 'We cultivate deep relationships with our clients, acting as their vanguard as they navigate the global economy. OWA Technologies ensures your business stays ahead of the curve through discipline, constant innovation, and a refusal to lag behind Western hyper-automation standards. We are your primary tactical advantage.' },
-            ]} />
-            <DocSection num="04" title="History & Spiritual Foundation" cards={[
-                { heading: 'The Founder & AI Consulting Lead', text: 'OWA Technologies was pioneered by LYKART OSIX, officially known in AI consulting as LYKART06. Starting this journey at the age of 19, his perseverance serves as proof that vision paired with neural logic can overcome any obstacle. For all AI-specific strategic consultations, LYKART06 leads the architecture alongside a team of High Consultants at OWA.' },
-                { heading: 'Habakkuk 2:2 & Gratitude', text: 'LYKART OSIX extends his deepest gratitude to the Almighty God for the wisdom to build this architecture, and to all supporters who provided strength along the way. Bible Verse Habakkuk 2:2: "Write the vision and make it plain on tablets, that he may run who reads it." This means vision must be documented with such clarity that any architect can execute it with effortless speed.' },
-            ]} />
-            <DocSection num="05" title="Core Values & Institutional Discipline" cards={[
-                { heading: 'Absolute Transparency', text: 'Every partner must understand the how and why of their automation. We operate with an open-logic policy, demystifying the black box of AI to ensure our partners are always in command of their digital destiny. We believe that informed leadership is the only path to sustainable enterprise growth.' },
-                { heading: 'Student & Team Value', text: 'We value our team and students as the primary nodes of our expansion. We invest heavily in their technical growth because a strong human core is necessary to manage a strong digital core. Parents can entrust their children to us without hesitation, knowing we provide personalized, disciplined mentorship for the future.' },
-            ]} />
-            <DocSection num="06" title="Security Architecture & Hacker Protection" cards={[
-                { heading: 'Neural Defense Systems', text: 'Security is our baseline. OWA protects client systems from external hacker friction using proprietary neural encryption layers. We ensure that your business intelligence remains your own, shielded from breaches and unauthorized access with proactive surveillance protocols. We stand as a firewall against digital instability.' },
-                { heading: 'Data Sovereignty', text: 'We employ a Privacy-First architecture. User data is never sold or utilized for third-party training. Our presence as a security-focused hub is mandatory for the survival of the digital enterprise in the new era. We protect the integrity of African data against global exploitation with military-grade precision.' },
-            ]} />
-            <DocSection num="07" title="Trust & Verification Protocol" cards={[
-                { heading: 'Official OWA Verification', text: 'In the real world, no individual can claim affiliation with OWA Technologies without presenting an Official Company ID and receiving direct confirmation from LYKART OSIX (LYKART06 – Node Verification Only). This protocol protects our partners from fraudulent representations and ensures institutional integrity at all times.' },
-                { heading: 'Cognitive Confidence', text: 'Clients work with OWA because our processes are rooted in professional accountability. We provide exhaustive pre-deployment documentation for every strategic node to ensure zero friction and maximum trust. Every architect in our network is vetted to ensure alignment with OWA\'s Phenomenally Great standards.' },
-            ]} />
-            <DocSection num="08" title="Inclusivity & Mastery for Everyone" cards={[
-                { heading: 'Multiply Your Skills', text: 'OWA is not just for the youth; it is for everyone with the enthusiasm to learn. We welcome professionals looking to enhance their current jobs with AI skills to work smarter and individuals wanting to learn from scratch. Partner with OWA to multiply your skills and become irreplaceable.' },
-                { heading: 'Irreplaceable Skills Quote', text: 'LYKART06 and the OWA team work in conjunction with high-tech consultants across the world. Don\'t just let Technology or AI replace your job; partner with OWA to multiply your skills and be irreplaceable. Everyone is phenomenally great at something; we help you find that niche.' },
-            ]} />
-            <DocSection num="09" title="Transparency & The Demo Mandate" cards={[
-                { heading: 'The Demo Project Rule', text: 'OWA Technologies operates on a strict Trust Mandate: NO FEES ARE TO BE PAID until the client has been shown and approved a demo review. This policy is what differentiates us from our competitors and is the foundation of OWA\'s culture. We provide absolute technical clarity before any financial commitment.' },
-                { heading: 'Philosophical Clarity', text: 'We prioritize the client\'s confidence over immediate profit. At OWA Academy and in our consultancy, every transaction is preceded by a demonstration of value, ensuring that trust is earned before it is expected. We empower you to decide with absolute technical clarity if we are the right fit.' },
-            ]} />
-            <DocSection num="10" title="Monetization & Global Connectivity" cards={[
-                { heading: 'Global Revenue Blueprints', text: 'There are multiple ways to make money and use technology effectively. From global consultancy to building bespoke automation nodes for international clients, OWA provides the blueprint for high-value revenue generation and financial independence in the new digital economy.' },
-                { heading: 'Strategic Follow Protocol', text: 'Do follow us on our social platforms or establish direct contact for further clarification, booking, OWA recruitment, and services. We are here to architect your future with phenomenally great results. Join the movement and lead the African technical renaissance today.' },
-            ]} />
+                <DocSection num="01" title="Company Overview & Mandate" cards={[
+                    { heading: 'Institutional Foundations', text: 'OWA Technologies Officials (OSIX WORLD ARTISTICS) is a strategic neural architecture hub headquartered in Harare, Zimbabwe. Founded as a direct response to the critical digital divide, OWA exists to empower African enterprises with high-fidelity intelligent systems. We are not merely a software vendor; we are a solutions architect dedicated to reclaiming technical sovereignty for local industries.' },
+                    { heading: 'Economic Equalization', text: 'We solve the pervasive friction of legacy models — eliminating response latency and administrative overhead. We serve scalable startups and established institutions seeking global-tier technical standards. Our mandate is to transform complexity into clarity through precision architecture, ensuring every business node operates at maximum potential.' },
+                ]} />
+                <DocSection num="02" title="Vision Statement & The 2030 Roadmap" cards={[
+                    { heading: 'The Neural Goal', text: 'Our vision is an Africa where high-speed neural logic is integrated into every workflow, creating a frictionless economy. We envision African industries as dominant architects, not just consumers, of the new digital era. We are building the infrastructure of 2030 today, utilizing localized intelligence to solve global-scale problems.' },
+                    { heading: 'Phenomenally Great Standard', text: 'At OWA, we believe that everyone is PHENOMENALLY GREAT at particular skills. This is why we are determined to provide PHENOMENALLY GREAT results that match the unique potential of our clients. We do not settle for average output; our architecture is designed for those who demand excellence and irreplaceable market value.' },
+                ]} />
+                <DocSection num="03" title="Mission Statement & Daily Protocol" cards={[
+                    { heading: 'Democratic Automation', text: 'Our mission is to democratize access to enterprise-grade automation through practical execution. OWA does not force people; we operate on democracy policies where your understanding and consent are paramount to the architecture\'s success. We strip away the complexity associated with AI, providing clean systems that empower founders.' },
+                    { heading: 'Technical Vanguard', text: 'We cultivate deep relationships with our clients, acting as their vanguard as they navigate the global economy. OWA Technologies Officials (OSIX WORLD ARTISTICS) ensures your business stays ahead of the curve through discipline, constant innovation, and a refusal to lag behind Western hyper-automation standards. We are your primary tactical advantage.' },
+                ]} />
+                <DocSection num="04" title="History & Spiritual Foundation" cards={[
+                    { heading: 'The Founder & AI Consulting Lead', text: 'OWA Technologies Officials (OSIX WORLD ARTISTICS) was pioneered by Samuel T Samoyo (LYKART OSIX), officially known in AI consulting and digital architecture as LYKART06. Starting this journey at the age of 19, his perseverance serves as proof that vision paired with neural logic can overcome any obstacle. For all AI-specific strategic consultations, Samuel T Samoyo leading as LYKART06 heads the architecture alongside a team of High Consultants at OWA.' },
+                    { heading: 'Habakkuk 2:2 & Gratitude', text: 'LYKART OSIX (Samuel T Samoyo) extends his deepest gratitude to the Almighty God for the wisdom to build this architecture, and to all supporters who provided strength along the way. Bible Verse Habakkuk 2:2: "Write the vision and make it plain on tablets, that he may run who reads it." This means vision must be documented with such clarity that any architect can execute it with effortless speed.' },
+                ]} />
+                <DocSection num="05" title="Core Values & Institutional Discipline" cards={[
+                    { heading: 'Absolute Transparency', text: 'Every partner must understand the how and why of their automation. We operate with an open-logic policy, demystifying the black box of AI to ensure our partners are always in command of their digital destiny. We believe that informed leadership is the only path to sustainable enterprise growth.' },
+                    { heading: 'Student & Team Value', text: 'We value our team and students as the primary nodes of our expansion. We invest heavily in their technical growth because a strong human core is necessary to manage a strong digital core. Parents can entrust their children to us without hesitation, knowing we provide personalized, disciplined mentorship for the future.' },
+                ]} />
+                <DocSection num="06" title="Security Architecture & Hacker Protection" cards={[
+                    { heading: 'Neural Defense Systems', text: 'Security is our baseline. OWA protects client systems from external hacker friction using proprietary neural encryption layers. We ensure that your business intelligence remains your own, shielded from breaches and unauthorized access with proactive surveillance protocols. We stand as a firewall against digital instability.' },
+                    { heading: 'Data Sovereignty', text: 'We employ a Privacy-First architecture. User data is never sold or utilized for third-party training. Our presence as a security-focused hub is mandatory for the survival of the digital enterprise in the new era. We protect the integrity of African data against global exploitation with military-grade precision.' },
+                ]} />
+                <DocSection num="07" title="Trust & Verification Protocol" cards={[
+                    { heading: 'Official OWA Verification', text: 'In the real world, no individual can claim affiliation with OWA Technologies Officials without presenting an Official Company ID and receiving direct confirmation from Samuel T Samoyo (LYKART OSIX / LYKART06 – Node Verification Only). This protocol protects our partners from fraudulent representations and ensures institutional integrity at all times.' },
+                    { heading: 'Cognitive Confidence', text: 'Clients work with OWA because our processes are rooted in professional accountability. We provide exhaustive pre-deployment documentation for every strategic node to ensure zero friction and maximum trust. Every architect in our network is vetted to ensure alignment with OWA\'s Phenomenally Great standards.' },
+                ]} />
+                <DocSection num="08" title="Inclusivity & Mastery for Everyone" cards={[
+                    { heading: 'Multiply Your Skills', text: 'OWA is not just for the youth; it is for everyone with the enthusiasm to learn. We welcome professionals looking to enhance their current jobs with AI skills to work smarter and individuals wanting to learn from scratch. Partner with OWA to multiply your skills and become irreplaceable.' },
+                    { heading: 'Irreplaceable Skills Quote', text: 'LYKART06 and the OWA team work in conjunction with high-tech consultants across the world. Don\'t just let Technology or AI replace your job; partner with OWA to multiply your skills and be irreplaceable. Everyone is phenomenally great at something; we help you find that niche.' },
+                ]} />
+                <DocSection num="09" title="Transparency & The Demo Mandate" cards={[
+                    { heading: 'The Demo Project Rule', text: 'OWA Technologies Officials operates on a strict Trust Mandate: NO FEES ARE TO BE PAID until the client has been shown and approved a demo review. This policy is what differentiates us from our competitors and is the foundation of OWA\'s culture. We provide absolute technical clarity before any financial commitment.' },
+                    { heading: 'Philosophical Clarity', text: 'We prioritize the client\'s confidence over immediate profit. At OWA Academy and in our consultancy, every transaction is preceded by a demonstration of value, ensuring that trust is earned before it is expected. We empower you to decide with absolute technical clarity if we are the right fit.' },
+                ]} />
+                <DocSection num="10" title="Monetization & Global Connectivity" cards={[
+                    { heading: 'Global Revenue Blueprints', text: 'There are multiple ways to make money and use technology effectively. From global consultancy to building bespoke automation nodes for international clients, OWA provides the blueprint for high-value revenue generation and financial independence in the new digital economy.' },
+                    { heading: 'Strategic Follow Protocol', text: 'Do follow us on our social platforms or establish direct contact for further clarification, booking, OWA recruitment, and services. We are here to architect your future with phenomenally great results. Join the movement and lead the African technical renaissance today.' },
+                ]} />
             </div>
 
             {/* CTA */}
@@ -1497,7 +1496,7 @@ export const GadgetPage: React.FC<{ open: boolean; onClose: () => void }> = ({ o
 // ════════════════════════════════════════════════════════════════
 export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => (
     <PageOverlay open={open} onClose={onClose}>
-        <PageHero badge="The OWA Manifesto" title="OWATECH AI<br/><span style='color:#60a5fa'>PHENOMENALLY GREAT</span>" sub="OWA Technologies is a unified digital organization with multiple branches working as one powerful ecosystem, founded and visioned by LYKART OSIX (LYKART06)." />
+        <PageHero badge="The OWA Manifesto" title="OWA TECHNOLOGIES OFFICIALS<br/><span style='color:#60a5fa'>OSIX WORLD ARTISTICS</span>" sub="Empowering Africa and the world through AI. Phenomenally Great. OWA Technologies Officials is a unified digital organization founded and visioned by Samuel T Samoyo (LYKART OSIX), known in the digital domain as LYKART06." />
         <div className={wrapClass}>
             <div style={{ marginBottom: 60 }}>
                 <h2 style={{ fontSize: '1.8rem', fontWeight: 900, marginBottom: 24, letterSpacing: '-0.02em' }}>Beyond a Company. A Movement.</h2>
@@ -1541,8 +1540,8 @@ export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                     <footer style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                         <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: '0.8rem' }}>L06</div>
                         <div>
-                            <span style={{ display: 'block', fontWeight: 800, fontSize: '0.9rem' }}>LYKART OSIX (LYKART06)</span>
-                            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Founder & Visionary</span>
+                            <span style={{ display: 'block', fontWeight: 800, fontSize: '0.9rem' }}>LYKART OSIX (Samuel T Samoyo, LYKART06)</span>
+                            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Founder & Vision Director</span>
                         </div>
                     </footer>
                 </blockquote>
@@ -1581,7 +1580,7 @@ export const OWATechPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
                     <h2 style={{ fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#60a5fa' }}>Founder’s Credibility</h2>
                 </div>
                 <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32, lineHeight: 1.8 }}>
-                    The Founder of OWA Technologies, LYKART OSIX (LYKART06), is a published author in The Herald, Zimbabwe’s leading national newspaper. His early advocacy for ICT and youth empowerment is documented in national archives.
+                    The Founder and Director of OWA Technologies Officials (OSIX WORLD ARTISTICS), Samuel T Samoyo (LYKART OSIX / LYKART06), is a published author in The Herald, Zimbabwe’s leading national newspaper. His early advocacy for ICT and youth empowerment is documented in national archives.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                     <a href="https://www.heraldonline.co.zw/taking-advantage-of-ict-in-schools/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.05)', color: '#fff', textDecoration: 'none' }}>
