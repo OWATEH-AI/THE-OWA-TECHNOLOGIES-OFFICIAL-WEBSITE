@@ -1,0 +1,190 @@
+/* =============================================
+   OWA TECHNOLOGIES - RESPONSIVE BREAKPOINTS
+   ============================================= */
+
+/* ---- Desktop Nav Show / Mobile Hide ---- */
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ---- Training grid ---- */
+.training-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- Contact grid ---- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- Footer Grid ---- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+/* =============================================
+   TABLET breakpoint (max 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Tablet-specific landing page space reduction */
+  #hero {
+    height: 82vh !important; /* Reduced more to crop space */
+    padding-bottom: 10px !important; /* Minimal gap below buttons */
+  }
+
+  .section-stats {
+    padding-top: 0px !important; /* Remove top gap to bring sections together */
+  }
+
+  .hero-scroll-indicator {
+    bottom: 8px !important; /* Keep it tucked at the bottom */
+  }
+
+  /* Hide sliding cards (Marquee) for both Mobile and Tablet as requested */
+  .marquee-root, 
+  .section-testimonials {
+    display: none !important;
+  }
+
+  /* Fix visibility of BY LYKART06 tag for tablet/mobile */
+  .powered-by-badge {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) !important; /* Centered on the line */
+    background: #000 !important;
+    z-index: 50 !important; /* Lowered from 100 so it doesn't appear over menus */
+    user-select: none !important;
+    pointer-events: none !important;
+    -webkit-user-drag: none !important;
+  }
+
+  /* Hide the long desktop tag on tablet and show the mobile version instead */
+  .powered-by-badge .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .powered-by-badge .show-on-mobile {
+    display: inline-block !important;
+  }
+}
+
+/* =============================================
+   MOBILE breakpoint (max 768px)
+   ============================================= */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  .main-nav {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    padding: 14px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  #hero {
+    height: 75svh !important; /* Tighter crop for phone */
+    min-height: 500px !important; /* Allow it to be shorter */
+    padding-bottom: 10px !important;
+  }
+  
+  .section-stats {
+    padding-top: 0px !important;
+  }
+
+  .hero-scroll-indicator {
+    display: none !important; /* Hide on small mobile to save space */
+  }
+
+  .hero-slide-img {
+    object-position: center center !important;
+  }
+
+  /* Training & Contact — stack vertically */
+  .training-grid {
+    grid-template-columns: 1fr !important;
+    direction: ltr !important;
+    gap: 40px !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px !important;
+  }
+
+  /* Pricing scale reset on mobile */
+  .pricing-grid>div {
+    transform: scale(1) !important;
+  }
+
+  /* CTA Banner internal padding */
+  section .container>div[style*="padding: '80px 64px'"] {
+    padding: 40px 20px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Training program sections — reduce massive gap */
+  [style*="gap: 120"] {
+    gap: 48px !important;
+  }
+
+  /* Restore footer tag position strictly for mobile view */
+  .powered-by-badge {
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+/* =============================================
+   SMALL MOBILE (max 480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero buttons full-width */
+  #hero .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Training features grid — single col */
+  .training-grid [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Training buttons stack */
+  .training-grid [style*="display: 'flex', gap"] {
+    flex-direction: column !important;
+  }
+
+  .training-grid .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
