@@ -958,7 +958,7 @@ export const AcademyPage: React.FC<{ open: boolean; onClose: () => void }> = ({ 
     <PageOverlay open={open} onClose={onClose}>
         <PageHero
             badge="OWA Academy & Insights"
-            title="Learn With<br/><span style='color:#60a5fa'>OWA Technologies Officials</span>"
+            title="Learn With<br/><span style='color:#60a5fa'>OWA Technologies</span>"
             sub="We believe informed clients make better decisions. Our education tracks bridge the gap between AI curiosity and enterprise implementation."
         />
         <div className={wrapClass}>
@@ -1150,7 +1150,7 @@ export const ContactHubPage: React.FC<{ open: boolean; onClose: () => void }> = 
     <PageOverlay open={open} onClose={onClose}>
         <PageHero
             badge="Executive Contact Hub"
-            title="Reach OWA Technologies Officials<br/>Directly"
+            title="Reach OWA Technologies<br/>Directly"
             sub="All contact channels are verified. Identity verification is required for voice calls. We respond within 24 business hours."
         />
         <div className={wrapClass}>
@@ -1277,7 +1277,7 @@ export const ProgramsPage: React.FC<{ open: boolean; onClose: () => void }> = ({
                         <Code size={24} />
                     </div>
                     <div>
-                        <h2 style={{ fontSize: '1.8rem', fontWeight: 900 }}>OWA Technologies Officials</h2>
+                        <h2 style={{ fontSize: '1.8rem', fontWeight: 900 }}>OWA Technologies</h2>
                         <p style={{ color: '#60a5fa', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Primary Integration Node</p>
                     </div>
                 </div>
@@ -1716,7 +1716,7 @@ export const PrivacyPolicyPage: React.FC<{ open: boolean; onClose: () => void }>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9rem', marginBottom: 24 }}>Our legal team and AI ethics board are available for consultation.</p>
                     <a href="mailto:legal@owatech-ai.com" style={{ color: '#60a5fa', textDecoration: 'none', fontWeight: 700, fontSize: '1.1rem' }}>legal@owatech-ai.com</a>
                     <div style={{ marginTop: 32, fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>
-                        Last Updated: March 4, 2026 • © OWA Technologies Officials Infrastructure (OSIX WORLD ARTISTICS)
+                        Last Updated: March 4, 2026 • © OWA Technologies Infrastructure
                     </div>
                 </div>
             </div>
